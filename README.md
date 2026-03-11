@@ -1,4 +1,3 @@
-# Online Library
 # Online Library Website
 
 This project is an Online Library Website that allows users to search for books, view details, and borrow books. The system also includes an admin role that can manage the books in the library.
