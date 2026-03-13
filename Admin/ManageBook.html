@@ -5,6 +5,8 @@
 </head>
 <body>
 
+ <header>
+
 <nav>
 <ul style="display: flex; justify-content: space-between; align-items: center; padding: 10px 25px; ">
 <li><a href="../index.html">Home</a></li>
@@ -14,34 +16,49 @@
 <li><a href="../User/MyBooks.html">My Books</a></li>
 <li><a href="../Login.html">Login</a></li>
 <li><a href="../Signup.html">Sign Up</a></li>
-<li><a href="Admin/ManageBook.html">Manage Books</a></li>></ul>
-</nav>   
-
+<li><a href="ManageBook.html">Manage Books</a></li>
+</ul>
+</nav>
+</header>
 <hr>
 <h2>Manage Books</h2>
-    
+    <div class=""> 
+        <button type="button">
+            Show All
+        </button>
+         <button type="button">
+            <a href="AdminAddBook.html" target="_blank">
+                            Add Book
+
+            </a>
+        </button>
+        <button type="button">
+            Delete All
+        </button>
+    </div>
 <table  border="2" cellpadding="15">
-<tr>
-    <td>Book ID</td>
-    <td>Title</td>
-    <td>Author</td>
-    <td>Category</td>
-    <td>Edit</td>
-    <td>Delete</td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>Book Title 1</td>
-    <td>Author 1</td>
-    <td>Category 1</td>
-    <td><a href="AdminEditBook.html">Edit</a></td>
-    <td><a href="#">Delete</a></td>
-</tr>
+    <thead>
+        <tr>
+            <th>Book ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>User Can Borrow?</th>
+            <th>Edit     </th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+<tbody>
 <tr>
     <td>2</td>
     <td>Book Title 2</td>
     <td>Author 2</td>
     <td>Category 2</td>
+    <td>Active</td>
+    <td>Yes</td>
+
     <td><a href="AdminEditBook.html">Edit</a></td>
     <td><a href="#">Delete</a></td>
 </tr>
@@ -50,8 +67,12 @@
     <td>Book Title 3</td>
     <td>Author 3</td>
     <td>Category 3</td>
+       <td>Active</td>
+    <td>No</td>
     <td><a href="AdminEditBook.html">Edit</a></td>
     <td><a href="#">Delete</a></td>
 </tr>
+</tbody>
+</table>
 </body>
 </html>
