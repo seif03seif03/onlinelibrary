@@ -16,7 +16,10 @@
 <li><a href="../User/MyBooks.html">My Books</a></li>
 <li><a href="../Login.html">Login</a></li>
 <li><a href="../Signup.html">Sign Up</a></li>
-<li><a href="Admin/ManageBook.html">Manage Books</a></li>></ul>
+<li><a href="Admin/ManageBook.html">Manage Books</a></li>
+            <li><a href="User/Profile.html"> My Profile</a></li>
+
+</ul>
 </nav>   
 </header>
 <body>
@@ -28,29 +31,52 @@
     <hr>
     <section class="Featured">
   <h2>Featured Books</h2>
-    <ul>
+    <div class="books">
+            <div class="book_1">
+                <div class="image">
         <img src="images/thegreatgatsby.jpg" alt="The Great Gatsby" width="100" height="150">
-        <li><strong>The Great Gatsby</strong> by F. Scott Fitzgerald</li>
-        <a href="/User/BookDetails.html">More Info</a>
-         <a href="/User/BorrowBooks.html">Borrow</a><br></br>
+                </div>
+                <div class="title">
+                <strong>The Great Gatsby</strong> by F. Scott Fitzgerald
+                </div>
+                <div class="available">
+                    Can borrow 
+                    
+                </div>
+                <div class="actions">
+                    <button type="button">
+                   <a href="/User/BookDetails.html">More Info</a>
+                    </button>
+                      <button type="button">
+                            <!-- If available -->
+                    <a href="/User/BorrowBooks.html"> Borrow</a>
+
+                    </button>
+                </div>
+
+            </div>
+             <div class="book">
+                <div class="image">
         <img src="images/To Kill a Mockingbird.jpg" alt="To Kill a Mockingbird" width="100" height="150">
+                </div>
+                <div class="title">
         <li><strong>To Kill a Mockingbird</strong> by Harper Lee</li>
-        <a href="/User/BookDetails.html">More Info</a>
-         <a href="/User/BorrowBooks.html">Borrow</a><br></br>
-        <img src="images/1984 by George Orwell.jpg" alt="1984" width="100" height="150">
-        <li><strong>1984</strong> by George Orwell</li>
-        <a href="/User/BookDetails.html">More Info</a>
-        <a href="/User/BorrowBooks.html">Borrow</a><br></br>
-        <img src="images/Pride and Prejudice.jpg" alt="Pride and Prejudice" width="100" height="150">
-        <li><strong>Pride and Prejudice</strong> by Jane Austen</li>
-        <a href="/User/BookDetails.html">More Info</a>     
-        <a href="/User/BorrowBooks.html">Borrow</a><br></br>
-        <img src="images/The Catcher in the Rye.jpg" alt="The Catcher in the Rye" width="100" height="150">
-        <li><strong>The Catcher in the Rye</strong> by J.D. Salinger</li>
-        <a href="/User/BookDetails.html">More Info</a>
-        <a href="/User/BorrowBooks.html">Borrow</a><br></br>
-        
-    </ul>
+                </div>
+                  <div class="available">
+                    Cannot borrow 
+                    
+                </div>
+                <div class="actions">
+                    <button type="button">
+          <a href="/User/BookDetails.html">More Info</a>
+
+                    </button>
+                  
+
+                </div>
+
+            </div>
+                </div>
 </section>
 
         <p><a href="AllBooks.html">To view more books</a></p>
