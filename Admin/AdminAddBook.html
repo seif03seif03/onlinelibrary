@@ -2,75 +2,76 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<title>Add Book</title>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
 </head>
 
 <body>
     <header>
 
-<nav>
-<ul style="display: flex; justify-content: space-between; align-items: center; padding: 10px 25px; ">
-<li><a href="../index.html">Home</a></li>
-<li><a href="../AllBooks.html">Books</a></li>
-<li><a href="../User/SearchBook.html">Search</a></li>
-<li><a href="../User/BorrowBooks.html">Borrow Books</a></li>
-<li><a href="../User/MyBooks.html">My Books</a></li>
-<li><a href="../Login.html">Login</a></li>
-<li><a href="../Signup.html">Sign Up</a></li>
-<li><a href="ManageBook.html">Manage Books</a></li>
-</ul>
-</nav>
-</header>
+        <nav>
+            <ul style="display: flex; justify-content: space-between; align-items: center; padding: 10px 25px; ">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../AllBooks.html">Books</a></li>
+                <li><a href="../User/SearchBook.html">Search</a></li>
+                <li><a href="../User/BorrowBooks.html">Borrow Books</a></li>
+                <li><a href="../User/MyBooks.html">My Books</a></li>
+                <li><a href="../Login.html">Login</a></li>
+                <li><a href="../Signup.html">Sign Up</a></li>
+                <li><a href="/Admin/ManageBook.html">Manage Books</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<hr>
-<h2>Add New Book!</h2>
+    <hr>
+    <h2>Add New Book!</h2>
 
-<form>
-    <div>
-<label>Book Title:</label>
-<input type="text" name="Title">
-    </div>
+    <form>
+        <div>
+            <label>Book Title:</label>
+            <input type="text" name="Title">
+        </div>
 
 
-<div>
-    <label>Author:</label><br>
-<input type="text" name="Author">
-</div>
-<div>
-<label>Category:</label>
-<select name="Category">
+        <div>
+            <label>Author:</label><br>
+            <input type="text" name="Author">
+        </div>
+        <div>
+            <label>Category:</label>
+            <select name="Category">
 
-<option>Novel</option>
-<option>Science</option>
-<option>History</option>
+                <option>Novel</option>
+                <option>Science</option>
+                <option>History</option>
 
-</select>
-</div>
+            </select>
+        </div>
 
-<div>
-    <label for="">Description:</label>
-<textarea name="description" rows="4" cols="40"></textarea>
+        <div>
+            <label for="">Description:</label>
+            <textarea name="description" rows="4" cols="40"></textarea>
 
-</div>
-<div>
-<label>Upload Book Image:</label>
-<input type="file">
-</div>
-<div>
-    <div >
-        <input class="form-check-input" type="checkbox" value="" id="" />
-        <label class="form-check-label" for="">  Is Active </label>
-    </div>
-       <div >
-        <input class="form-check-input" type="checkbox" value="" id="" />
-        <label class="form-check-label" for="">  Can User Borrow?  </label>
-    </div>
-   
-    
-</div>
-<button type="submit">Add Book</button>
+        </div>
+        <div>
+            <label>Upload Book Image:</label>
+            <input type="file">
+        </div>
+        <div>
+            <div>
+                <input class="form-check-input" type="checkbox" value="" id="" />
+                <label class="form-check-label" for=""> Is Active </label>
+            </div>
+            <div>
+                <input class="form-check-input" type="checkbox" value="" id="" />
+                <label class="form-check-label" for=""> Can User Borrow? </label>
+            </div>
 
-</form>
+
+        </div>
+        <button type="submit">Add Book</button>
+
+    </form>
 </body>
+
 </html>
