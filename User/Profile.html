@@ -1,46 +1,44 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
-    <title>
-        My Profile
-    </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Library | My Profile</title>
+    <link rel="stylesheet" href="../css/Profile.css">
 </head>
+<body data-page="profile">
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="brand" href="../index.html">Online Library</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../AllBooks.html">Books</a></li>
+                <li><a href="SearchBook.html">Search</a></li>
+                <li><a href="BorrowBooks.html">Borrow</a></li>
+                <li><a href="MyBooks.html">My Books</a></li>
+                <li><a href="../Admin/ManageBook.html">Manage Books</a></li>
+                <li><a href="Profile.html">My Profile</a></li>
+                <li><a href="../Login.html">Login</a></li>
+                <li><a href="../Signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<body>
-    <header>
+    <main class="page-shell narrow-shell">
+        <section class="section-card">
+            <p class="eyebrow">Account Overview</p>
+            <h1>My Profile</h1>
+            <div id="profile-details" class="profile-grid"></div>
+            <div class="inline-actions">
+                <a class="button button-primary" href="EditUserProfile.html">Edit Profile</a>
+                <a class="button button-secondary" href="MyBooks.html">View My Books</a>
+            </div>
+        </section>
+    </main>
 
-    <nav>
-        <ul style="display: flex; justify-content: space-between; align-items: center; padding: 10px 25px; ">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../AllBooks.html">Books</a></li>
-            <li><a href="../User/SearchBook.html">Search</a></li>
-            <li><a href="../User/BorrowBooks.html">Borrow Books</a></li>
-            <li><a href="../User/MyBooks.html">My Books</a></li>
-            <li><a href="../Login.html">Login</a></li>
-            <li><a href="../Signup.html">Sign Up</a></li>
-            <li><a href="../Admin/ManageBook.html">Manage Books</a></li>
-                        <li><a href="User/Profile.html"> My Profile</a></li>
-
-        </ul>
-    </nav>
-</header>
-
-    <h2>My Profile</h2>
-
-    <p><b>Username: </b> .....</p>
-    <p><b>Role: </b> User</p>
-    <p><b>password: </b> ***********</p>
-    <hr>
-    <hr>
-    <br>
-    <p><b>Email: </b> ......@email.com</p>
-    <p><b>Adress: </b>........</p>
-    <p><b>Phone number: </b> ***********</p>
-    <p><b>books: </b> <a href="MyBooks.html">View My Books</a></p>
-
-    <button type="submit"> <a href="/User/EditUserProfile.html">Edit Profile</a></button>
-        
-    </body>
+    <script src="../js/core.js"></script>
+    <script src="../js/shared-navbar.js"></script>
+    <script src="../js/pages.js"></script>
+    <script src="../js/Profile.js"></script>
+</body>
 </html>

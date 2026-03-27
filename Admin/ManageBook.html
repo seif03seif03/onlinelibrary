@@ -1,83 +1,67 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Manage Book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Library | Manage Books</title>
+    <link rel="stylesheet" href="../css/ManageBook.css">
 </head>
-
-<body>
-
-    <header>
-
-        <nav>
-            <ul style="display: flex; justify-content: space-between; align-items: center; padding: 10px 25px; ">
+<body data-page="manage-books">
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="brand" href="../index.html">Online Library</a>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../AllBooks.html">Books</a></li>
                 <li><a href="../User/SearchBook.html">Search</a></li>
-                <li><a href="../User/BorrowBooks.html">Borrow Books</a></li>
+                <li><a href="../User/BorrowBooks.html">Borrow</a></li>
                 <li><a href="../User/MyBooks.html">My Books</a></li>
+                <li><a href="ManageBook.html">Manage Books</a></li>
+                <li><a href="../User/Profile.html">My Profile</a></li>
                 <li><a href="../Login.html">Login</a></li>
                 <li><a href="../Signup.html">Sign Up</a></li>
-                <li><a href="ManageBook.html">Manage Books</a></li>
-               <li><a href="../User/Profile.html"> My Profile</a></li>
-
             </ul>
         </nav>
     </header>
-    <hr>
-    <h2>Manage Books</h2>
-    <div class="">
-        <button type="button">
-            Show All
-        </button>
-        <button type="button">
-            <a href="AdminAddBook.html" target="_blank">
-                Add Book
 
-            </a>
-        </button>
-        <button type="button">
-            Delete All
-        </button>
-    </div>
-    <table border="2" cellpadding="15">
-        <thead>
-            <tr>
-                <th>Book ID</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Category</th>
-                <th>Status</th>
-                <th>User Can Borrow?</th>
-                <th>Edit </th>
-                <th>Delete</th>
-            </tr>
-        </thead>
+    <main class="page-shell">
+        <section class="section-card">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Admin Panel</p>
+                    <h1>Manage Books</h1>
+                </div>
+                <div class="inline-actions">
+                    <button id="show-all-books" class="button button-secondary" type="button">Show All</button>
+                    <a class="button button-primary" href="AdminAddBook.html">Add Book</a>
+                    <button id="delete-all-books" class="button button-danger" type="button">Delete All</button>
+                </div>
+            </div>
+            <p id="manage-books-message" class="form-message" aria-live="polite"></p>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Book ID</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Borrowable</th>
+                            <th>Available Copies</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="manage-books-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
 
-        <tbody>
-            <tr>
-                <td>2</td>
-                <td>Book Title 2</td>
-                <td>Author 2</td>
-                <td>Category 2</td>
-                <td>Active</td>
-                <td>Yes</td>
-
-                <td><a href="AdminEditBook.html">Edit</a></td>
-                <td><a href="#">Delete</a></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Book Title 3</td>
-                <td>Author 3</td>
-                <td>Category 3</td>
-                <td>Active</td>
-                <td>No</td>
-                <td><a href="AdminEditBook.html">Edit</a></td>
-                <td><a href="#">Delete</a></td>
-            </tr>
-        </tbody>
-    </table>
+    <script src="../js/core.js"></script>
+    <script src="../js/shared-navbar.js"></script>
+    <script src="../js/pages.js"></script>
+    <script src="../js/ManageBook.js"></script>
 </body>
-
 </html>

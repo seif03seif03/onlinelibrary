@@ -1,105 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Online Library | All Books</title>
+    <link rel="stylesheet" href="css/AllBooks.css">
 </head>
+<body data-page="books">
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="brand" href="index.html">Online Library</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="AllBooks.html">Books</a></li>
+                <li><a href="User/SearchBook.html">Search</a></li>
+                <li><a href="User/BorrowBooks.html">Borrow</a></li>
+                <li><a href="User/MyBooks.html">My Books</a></li>
+                <li><a href="Admin/ManageBook.html">Manage Books</a></li>
+                <li><a href="User/Profile.html">My Profile</a></li>
+                <li><a href="Login.html">Login</a></li>
+                <li><a href="Signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
 
-
-<body>
-    <header>
-   
-<nav>
-<ul style="display: flex; justify-content: space-between; align-items: center; padding: 10px 25px; ">
-<li><a href="../index.html">Home</a></li>
-<li><a href="../AllBooks.html">Books</a></li>
-<li><a href="../User/SearchBook.html">Search</a></li>
-<li><a href="../User/BorrowBooks.html">Borrow Books</a></li>
-<li><a href="../User/MyBooks.html">My Books</a></li>
-<li><a href="../Login.html">Login</a></li>
-<li><a href="../Signup.html">Sign Up</a></li>
-<li><a href="Admin/ManageBook.html">Manage Books</a></li>
-            <li><a href="User/Profile.html"> My Profile</a></li>
-
-</ul>
-</nav>   
-</header>
-    <section class="AllBooks">
-        <div class="title">
-        <h2>All Books</h2>
-        </div>
-        <div class="books">
-            <div class="book">
-                <div class="image">
-        <img src="images/thegreatgatsby.jpg" alt="The Great Gatsby" width="100" height="150">
+    <main class="page-shell">
+        <section class="section-card">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Catalog</p>
+                    <h1>All Books</h1>
                 </div>
-                <div class="title">
-                <strong>The Great Gatsby</strong> by F. Scott Fitzgerald
-                </div>
-                <div class="available">
-                    Can borrow 
-                    
-                </div>
-                <div class="actions">
-                    <button type="button">
-                   <a href="/User/BookDetails.html">More Info</a>
-                    </button>
-                      <button type="button">
-                            <!-- If available -->
-                    <a href="/User/BorrowBooks.html"> Borrow</a>
-
-                    </button>
-                </div>
-
+                <a class="button button-secondary" href="User/SearchBook.html">Advanced Search</a>
             </div>
-             <div class="book">
-                <div class="image">
-        <img src="images/To Kill a Mockingbird.jpg" alt="To Kill a Mockingbird" width="100" height="150">
-                </div>
-                <div class="title">
-        <li><strong>To Kill a Mockingbird</strong> by Harper Lee</li>
-                </div>
-                  <div class="available">
-                    Cannot borrow 
-                    
-                </div>
-                <div class="actions">
-                    <button type="button">
-          <a href="/User/BookDetails.html">More Info</a>
+            <div id="all-books" class="book-grid"></div>
+        </section>
+    </main>
 
-                    </button>
-                  
-
-                </div>
-
-            </div>
-              <div class="book">
-                <div class="image">
-        <img src="images/ASOIAF.jpg" alt="" width="100" height="150">
-                </div>
-                <div class="title">
-        <li><strong>ASOIAF</strong> by Harper Lee</li>
-                </div>
-                  <div class="available">
-                    Can borrow 
-                    
-                </div>
-                <div class="actions">
-                    <button type="button">
-          <a href="/User/BookDetails.html">More Info</a>
-
-                    </button>
-                  
-
-                </div>
-
-            </div>
-                </div>
-
-  
-    </section>
-    </body>
+    <script src="js/core.js"></script>
+    <script src="js/shared-navbar.js"></script>
+    <script src="js/pages.js"></script>
+    <script src="js/AllBooks.js"></script>
+</body>
 </html>
- 

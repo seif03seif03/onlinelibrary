@@ -1,67 +1,61 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>
-        Search Book
-    </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Library | Search Books</title>
+    <link rel="stylesheet" href="../css/SearchBook.css">
 </head>
+<body data-page="search">
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="brand" href="../index.html">Online Library</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../AllBooks.html">Books</a></li>
+                <li><a href="SearchBook.html">Search</a></li>
+                <li><a href="BorrowBooks.html">Borrow</a></li>
+                <li><a href="MyBooks.html">My Books</a></li>
+                <li><a href="../Admin/ManageBook.html">Manage Books</a></li>
+                <li><a href="Profile.html">My Profile</a></li>
+                <li><a href="../Login.html">Login</a></li>
+                <li><a href="../Signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main class="page-shell">
+        <section class="section-card">
+            <p class="eyebrow">Search Collection</p>
+            <h1>Find your next book</h1>
+            <form id="search-form" class="filter-grid" novalidate>
+                <div>
+                    <label for="search-title">Book Title</label>
+                    <input id="search-title" name="title" type="text">
+                </div>
+                <div>
+                    <label for="search-author">Author</label>
+                    <input id="search-author" name="author" type="text">
+                </div>
+                <div>
+                    <label for="search-category">Category</label>
+                    <select id="search-category" name="category">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+                <div class="filter-actions">
+                    <button class="button button-primary" type="submit">Search</button>
+                    <button id="clear-search" class="button button-secondary" type="button">Clear</button>
+                </div>
+            </form>
+            <p id="search-message" class="form-message" aria-live="polite"></p>
+            <div id="search-results" class="book-grid"></div>
+        </section>
+    </main>
 
-
-<body>
-
-
-<header>
-    
-<nav>
-    <ul style="display: flex; justify-content: space-between; align-items: center; padding: 10px 25px; ">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../AllBooks.html">Books</a></li>
-        <li><a href="../User/SearchBook.html">Search</a></li>
-        <li><a href="../User/BorrowBooks.html">Borrow Books</a></li>
-        <li><a href="../User/MyBooks.html">My Books</a></li>
-        <li><a href="../Login.html">Login</a></li>
-        <li><a href="../Signup.html">Sign Up</a></li>
-        <li><a href="../Admin/ManageBook.html">Manage Books</a></li>
-                    <li><a href="User/Profile.html"> My Profile</a></li>
-
-    </ul>
-</nav>
-</header>
-
-<h2>Search Books</h2>
-
-
-<form>
-
-    <label>Book Title</label>
-    <input type="text">
-    <br>
-    <br>
-    <br>
-    <label>Author</label>
-    <input type="text">
-    <br>
-    <br>
-    <br>
-    <label>Category</label>
-    <select>
-        <option>Programming</option>
-        <option>Science</option>
-        <option>History</option>
-        <option>Romance</option>
-        <option>Novel</option>
-        <br>
-
-    </select>
-    <br>
-    <br>
-    <button type="submit">Search</button>
-    <br>
-    <br>
-    <br>
-</form>
-    
+    <script src="../js/core.js"></script>
+    <script src="../js/shared-navbar.js"></script>
+    <script src="../js/pages.js"></script>
+    <script src="../js/SearchBook.js"></script>
 </body>
 </html>

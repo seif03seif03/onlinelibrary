@@ -1,65 +1,52 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
-    <title>
-        Borrow Book
-    </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Online Library | Borrow Book</title>
+    <link rel="stylesheet" href="../css/BorrowBooks.css">
 </head>
+<body data-page="borrow">
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="brand" href="../index.html">Online Library</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../AllBooks.html">Books</a></li>
+                <li><a href="SearchBook.html">Search</a></li>
+                <li><a href="BorrowBooks.html">Borrow</a></li>
+                <li><a href="MyBooks.html">My Books</a></li>
+                <li><a href="../Admin/ManageBook.html">Manage Books</a></li>
+                <li><a href="Profile.html">My Profile</a></li>
+                <li><a href="../Login.html">Login</a></li>
+                <li><a href="../Signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main class="page-shell narrow-shell">
+        <section class="form-card">
+            <p class="eyebrow">Borrow Request</p>
+            <h1>Borrow a book</h1>
+            <form id="borrow-form" class="stack-form" novalidate>
+                <label for="borrow-book-id">Book ID</label>
+                <input id="borrow-book-id" name="bookId" type="number" min="1" required>
+                <label for="borrow-date">Borrow Date</label>
+                <input id="borrow-date" name="borrowDate" type="date" required>
+                <label for="return-date">Return Date</label>
+                <input id="return-date" name="returnDate" type="date" required>
+                <label for="borrow-address">Address</label>
+                <input id="borrow-address" name="address" type="text" required>
+                <p id="borrow-selected-book" class="info-chip"></p>
+                <p id="borrow-message" class="form-message" aria-live="polite"></p>
+                <button class="button button-primary" type="submit">Submit Borrow Request</button>
+            </form>
+        </section>
+    </main>
 
-<body>
-    <header>
-
-    <nav>
-        <ul style="display: flex; justify-content: space-between; align-items: center; padding: 10px 25px; ">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../AllBooks.html">Books</a></li>
-            <li><a href="../User/SearchBook.html">Search</a></li>
-            <li><a href="../User/BorrowBooks.html">Borrow Books</a></li>
-            <li><a href="../User/MyBooks.html">My Books</a></li>
-            <li><a href="../Login.html">Login</a></li>
-            <li><a href="../Signup.html">Sign Up</a></li>
-            <li><a href="../Admin/ManageBook.html">Manage Books</a></li>
-                        <li><a href="User/Profile.html"> My Profile</a></li>
-
-        </ul>
-    </nav>
-</header>
-    <div class="title">
-        <h2>
-            Borrow Book
-
-        </h2>
-
-
-    </div>
-    <form action="" method="post">
-        <div>
-            <label>Book ID</label>
-            <input type="number" name="count_of_days">
-        </div>
-        <div>
-            <label>Borrow Date</label>
-            <input type="date" name="count_of_days">
-        </div>
-        <div>
-            <label>Return Date</label>
-            <input type="date" name="count_of_days">
-        </div>
-        <div>
-            <label>Address :</label>
-            <input type="text" name="address">
-        </div>
-        <button type="submit">
-            Sumbit
-        </button>
-    </form>
-
-
-
+    <script src="../js/core.js"></script>
+    <script src="../js/shared-navbar.js"></script>
+    <script src="../js/pages.js"></script>
+    <script src="../js/BorrowBooks.js"></script>
 </body>
-
 </html>

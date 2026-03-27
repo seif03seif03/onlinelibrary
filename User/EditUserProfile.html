@@ -1,45 +1,51 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>
-        Edit Profile
-    </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Library | Edit Profile</title>
+    <link rel="stylesheet" href="../css/EditUserProfile.css">
 </head>
-
-<body>
-      <header>
-
-        <nav>
-            <ul style="display: flex; justify-content: space-between; align-items: center; padding: 10px 25px; ">
+<body data-page="edit-profile">
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="brand" href="../index.html">Online Library</a>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../AllBooks.html">Books</a></li>
-                <li><a href="../User/SearchBook.html">Search</a></li>
-                <li><a href="../User/BorrowBooks.html">Borrow Books</a></li>
-                <li><a href="../User/MyBooks.html">My Books</a></li>
+                <li><a href="SearchBook.html">Search</a></li>
+                <li><a href="BorrowBooks.html">Borrow</a></li>
+                <li><a href="MyBooks.html">My Books</a></li>
+                <li><a href="../Admin/ManageBook.html">Manage Books</a></li>
+                <li><a href="Profile.html">My Profile</a></li>
                 <li><a href="../Login.html">Login</a></li>
                 <li><a href="../Signup.html">Sign Up</a></li>
-                <li><a href="../Admin/ManageBook.html">Manage Books</a></li>
-                            <li><a href="User/Profile.html"> My Profile</a></li>
-
             </ul>
         </nav>
     </header>
-    <h2>Edit Profile</h2>
-    <form>
-        <label>New Username:</label>
-        <input type="text" name="username">
-        <br><br>
-        <label>New Email:</label>
-        <input type="email" name="email">
-        <br><br>
-        <label>New Address:</label>
-        <input type="text" name="address">
-        <br><br>
-        <label>New Phone Number:</label>
-        <input type="tel" name="phone">
-        <br><br>
-        <button type="submit">Update Profile</button>
-    </form>
+
+    <main class="page-shell narrow-shell">
+        <section class="form-card">
+            <p class="eyebrow">Update Profile</p>
+            <h1>Edit Profile</h1>
+            <form id="edit-profile-form" class="stack-form" novalidate>
+                <label for="edit-username">Username</label>
+                <input id="edit-username" name="username" type="text" required>
+                <label for="edit-email">Email</label>
+                <input id="edit-email" name="email" type="email" required>
+                <label for="edit-address">Address</label>
+                <input id="edit-address" name="address" type="text" required>
+                <label for="edit-phone">Phone Number</label>
+                <input id="edit-phone" name="phone" type="tel" required>
+                <p id="edit-profile-message" class="form-message" aria-live="polite"></p>
+                <button class="button button-primary" type="submit">Update Profile</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="../js/core.js"></script>
+    <script src="../js/shared-navbar.js"></script>
+    <script src="../js/pages.js"></script>
+    <script src="../js/EditUserProfile.js"></script>
 </body>
 </html>

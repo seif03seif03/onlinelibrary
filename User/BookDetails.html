@@ -1,56 +1,36 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
-    <title>
-        Book Details
-    </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Online Library | Book Details</title>
+    <link rel="stylesheet" href="../css/BookDetails.css">
 </head>
+<body data-page="details">
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="brand" href="../index.html">Online Library</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../AllBooks.html">Books</a></li>
+                <li><a href="SearchBook.html">Search</a></li>
+                <li><a href="BorrowBooks.html">Borrow</a></li>
+                <li><a href="MyBooks.html">My Books</a></li>
+                <li><a href="../Admin/ManageBook.html">Manage Books</a></li>
+                <li><a href="Profile.html">My Profile</a></li>
+                <li><a href="../Login.html">Login</a></li>
+                <li><a href="../Signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main class="page-shell narrow-shell">
+        <section id="book-details" class="section-card"></section>
+    </main>
 
-<body>
-    <header>
-
-    <nav>
-        <ul style="display: flex; justify-content: space-between; align-items: center; padding: 10px 25px; ">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../AllBooks.html">Books</a></li>
-            <li><a href="../User/SearchBook.html">Search</a></li>
-            <li><a href="../User/BorrowBooks.html">Borrow Books</a></li>
-            <li><a href="../User/MyBooks.html">My Books</a></li>
-            <li><a href="../Login.html">Login</a></li>
-            <li><a href="../Signup.html">Sign Up</a></li>
-            <li><a href="../Admin/ManageBook.html">Manage Books</a></li>
-                   <li><a href="User/Profile.html"> My Profile</a></li>
-
-        </ul>
-    </nav>
-</header>
-    <h1>Book details</h1>
-
-    <section class="book_detalis">
-        <div class="book">
-            <p>Book<b>ID:001</b><br><br>
-                bookname:<b>The Great Gatsby</b><br><br>
-                Author:<b> F. Scott Fitzgerald</b><br><br>
-                category:<b>Classic / Tragedy / Literary Fiction</b><br><br>
-                description:<b>Wealth, love, illusion, tragic ambition</b><br><br>
-                availabilty:<b>available</b><br><br>
-                Can Borrow:<b>Yes</b><br><br>
-
-            </p>
-            <div class="action">
-                <button type="button">
-                    <a href="">
-                        Borrow
-                    </a>
-                </button>
-            </div>
-        </div>
-
-    </section>
-
+    <script src="../js/core.js"></script>
+    <script src="../js/shared-navbar.js"></script>
+    <script src="../js/pages.js"></script>
+    <script src="../js/BookDetails.js"></script>
 </body>
 </html>

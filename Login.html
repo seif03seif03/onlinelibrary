@@ -1,61 +1,49 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
-    <title>
-        Login
-    </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Library | Login</title>
+    <link rel="stylesheet" href="css/Login.css">
 </head>
+<body data-page="login">
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="brand" href="index.html">Online Library</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="AllBooks.html">Books</a></li>
+                <li><a href="User/SearchBook.html">Search</a></li>
+                <li><a href="User/BorrowBooks.html">Borrow</a></li>
+                <li><a href="User/MyBooks.html">My Books</a></li>
+                <li><a href="Admin/ManageBook.html">Manage Books</a></li>
+                <li><a href="User/Profile.html">My Profile</a></li>
+                <li><a href="Login.html">Login</a></li>
+                <li><a href="Signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main class="page-shell narrow-shell">
+        <section class="form-card">
+            <p class="eyebrow">Welcome Back</p>
+            <h1>Log in to your account</h1>
+            <p class="section-copy">Use your username or email and password to continue.</p>
+            <form id="login-form" class="stack-form" novalidate>
+                <label for="login-identifier">Username or Email</label>
+                <input id="login-identifier" name="identifier" type="text" autocomplete="username" required>
+                <label for="login-password">Password</label>
+                <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+                <p id="login-message" class="form-message" aria-live="polite"></p>
+                <button class="button button-primary" type="submit">Login</button>
+            </form>
+            <p class="form-helper">No account yet? <a href="Signup.html">Create one here</a>.</p>
+        </section>
+    </main>
 
-<body>
-
- <header>
-   <nav>
-        <ul style="display: flex; justify-content: space-between; align-items: center; padding: 10px 25px; ">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../AllBooks.html">Books</a></li>
-            <li><a href="../User/SearchBook.html">Search</a></li>
-            <li><a href="../User/BorrowBooks.html">Borrow Books</a></li>
-            <li><a href="../User/MyBooks.html">My Books</a></li>
-            <li><a href="../Login.html">Login</a></li>
-            <li><a href="../Signup.html">Sign Up</a></li>
-            <li><a href="Admin/ManageBook.html">Manage Books</a></li>
-                        <li><a href="User/Profile.html"> My Profile</a></li>
-
-        </ul>
-    </nav>
-</header>
-    <p>Welcome back!</p>
-    <p>Login and start and a journy full of knowledge</p>
-    <hr>
-
-    <form action="/Login" method="post">
-        <div>
-            <label for="username">Username or Email:</label>
-            <input type="text" id="username" name="username" required autocomplete="username email">
-        </div>
-
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <br><br>
-        <button type="submit">Login</button>
-    </form>
+    <script src="js/core.js"></script>
+    <script src="js/shared-navbar.js"></script>
+    <script src="js/pages.js"></script>
+    <script src="js/Login.js"></script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

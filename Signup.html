@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
+    <title>Online Library | Sign Up</title>
+    <link rel="stylesheet" href="css/Signup.css">
 </head>
-
-<body>
-    <header>
-    <nav>
-        <ul style="display: flex; justify-content: space-between; align-items: center; padding: 10px 25px; ">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../AllBooks.html">Books</a></li>
-            <li><a href="../User/SearchBook.html">Search</a></li>
-            <li><a href="../User/BorrowBooks.html">Borrow Books</a></li>
-            <li><a href="../User/MyBooks.html">My Books</a></li>
-            <li><a href="../Login.html">Login</a></li>
-            <li><a href="../Signup.html">Sign Up</a></li>
-            <li><a href="Admin/ManageBook.html">Manage Books</a></li>
-                        <li><a href="User/Profile.html"> My Profile</a></li>
-
-        </ul>
-    </nav>
+<body data-page="signup">
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="brand" href="index.html">Online Library</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="AllBooks.html">Books</a></li>
+                <li><a href="User/SearchBook.html">Search</a></li>
+                <li><a href="User/BorrowBooks.html">Borrow</a></li>
+                <li><a href="User/MyBooks.html">My Books</a></li>
+                <li><a href="Admin/ManageBook.html">Manage Books</a></li>
+                <li><a href="User/Profile.html">My Profile</a></li>
+                <li><a href="Login.html">Login</a></li>
+                <li><a href="Signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <h1>Signup</h1>
-    <h2>Join our community and be a part of it!</h2>
-    <form action="/signup" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
+    <main class="page-shell narrow-shell">
+        <section class="form-card">
+            <p class="eyebrow">Create Account</p>
+            <h1>Join the online library</h1>
+            <form id="signup-form" class="stack-form" novalidate>
+                <label for="signup-username">Username</label>
+                <input id="signup-username" name="username" type="text" required>
+                <label for="signup-email">Email</label>
+                <input id="signup-email" name="email" type="email" required>
+                <label for="signup-password">Password</label>
+                <input id="signup-password" name="password" type="password" required>
+                <label for="signup-confirm-password">Confirm Password</label>
+                <input id="signup-confirm-password" name="confirmPassword" type="password" required>
+                <label for="signup-address">Address</label>
+                <input id="signup-address" name="address" type="text" required>
+                <label for="signup-phone">Phone Number</label>
+                <input id="signup-phone" name="phone" type="tel" required>
+                <label for="signup-account-type">Account Type</label>
+                <select id="signup-account-type" name="accountType" required>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <p id="signup-message" class="form-message" aria-live="polite"></p>
+                <button class="button button-primary" type="submit">Sign Up</button>
+            </form>
+            <p class="form-helper">Already have an account? <a href="Login.html">Login here</a>.</p>
+        </section>
+    </main>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-
-        <label for="confirm_password">Confirm Password:</label>
-        <input type="password" id="confirm_password" name="confirm_password" required><br><br>
-
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required><br><br>
-
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required><br><br>
-
-        <label for="account_type">Account Type:</label>
-        <select id="account_type" name="account_type" required>
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
-        </select><br><br>
-        already have an account? <a href="/Login.html">Login here</a><br><br>
-        <button type="submit">Sign Up</button>
-    </form>
-
+    <script src="js/core.js"></script>
+    <script src="js/shared-navbar.js"></script>
+    <script src="js/pages.js"></script>
+    <script src="js/Signup.js"></script>
+</body>
 </html>
