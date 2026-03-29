@@ -1,11 +1,11 @@
 // Function One: starts the shared setup and prepares the search form.
-function functionOne() {
+function initSearchPage() {
     init();
-    functionTwo();
+    bindSearchForm();
 }
 
 // Function Two: connects search and clear actions to the static cards.
-function functionTwo() {
+function bindSearchForm() {
     var form = document.getElementById("search-form");
     var clearButton = document.getElementById("clear-search");
 
@@ -13,12 +13,12 @@ function functionTwo() {
         return;
     }
 
-    form.addEventListener("submit", functionThree);
-    clearButton.addEventListener("click", functionFour);
+    form.addEventListener("submit", filterBookCards);
+    clearButton.addEventListener("click", resetSearch);
 }
 
 // Function Three: filters the already existing static cards on the page.
-function functionThree(event) {
+function filterBookCards(event) {
     event.preventDefault();
 
     var form = event.currentTarget;
@@ -41,11 +41,11 @@ function functionThree(event) {
         }
     });
 
-    functionFive(visibleCount);
+    updateSearchMessage(visibleCount);
 }
 
 // Function Four: resets the form and shows all static cards again.
-function functionFour() {
+function resetSearch() {
     var form = document.getElementById("search-form");
     var cards = document.querySelectorAll("#search-results .book-card");
 
@@ -54,13 +54,13 @@ function functionFour() {
         card.hidden = false;
     });
 
-    functionFive(cards.length);
+    updateSearchMessage(cards.length);
 }
 
 // Function Five: updates the message below the search form.
-function functionFive(count) {
+function updateSearchMessage(count) {
     var message = document.getElementById("search-message");
     showMessage(message, count + " book(s) visible.", count ? "success" : "error");
 }
 
-functionOne();
+initSearchPage();

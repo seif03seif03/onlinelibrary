@@ -1,12 +1,12 @@
 // Function One: starts the shared setup and prepares the borrow form.
-function functionOne() {
+function initBorrowBooksPage() {
     init();
-    functionTwo();
-    functionThree();
+    fillBorrowDefaults();
+    bindBorrowForm();
 }
 
 // Function Two: fills simple default values for the borrow form.
-function functionTwo() {
+function fillBorrowDefaults() {
     var addressInput = document.getElementById("borrow-address");
     var borrowDateInput = document.getElementById("borrow-date");
     var bookIdInput = document.getElementById("borrow-book-id");
@@ -27,7 +27,7 @@ function functionTwo() {
 }
 
 // Function Three: attaches simple interactions to the form and book id field.
-function functionThree() {
+function bindBorrowForm() {
     var form = document.getElementById("borrow-form");
     var bookInput = document.getElementById("borrow-book-id");
 
@@ -35,13 +35,13 @@ function functionThree() {
         return;
     }
 
-    bookInput.addEventListener("input", functionFour);
-    form.addEventListener("submit", functionFive);
-    functionFour();
+    bookInput.addEventListener("input", updateSelectedBookNote);
+    form.addEventListener("submit", submitBorrowRequest);
+    updateSelectedBookNote();
 }
 
 // Function Four: shows a small note about the typed book id.
-function functionFour() {
+function updateSelectedBookNote() {
     var bookInput = document.getElementById("borrow-book-id");
     var info = document.getElementById("borrow-selected-book");
 
@@ -53,7 +53,7 @@ function functionFour() {
 }
 
 // Function Five: validates the borrow request and saves a simple demo record.
-function functionFive(event) {
+function submitBorrowRequest(event) {
     event.preventDefault();
 
     var form = event.currentTarget;
@@ -87,4 +87,4 @@ function functionFive(event) {
     showMessage(message, "Borrow request saved successfully.", "success");
 }
 
-functionOne();
+initBorrowBooksPage();

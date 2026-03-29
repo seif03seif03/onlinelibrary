@@ -1,11 +1,11 @@
 // Function One: runs the shared page setup for the home page.
-function functionOne() {
+function initHomePage() {
     init();
-    functionTwo();
+    hideCreateAccountLink();
 }
 
 // Function Two: hides the create account button when a user is already logged in.
-function functionTwo() {
+function hideCreateAccountLink() {
     var createAccountLink = document.getElementById("create-account-link");
     if (!createAccountLink || !getCurrentUser()) {
         return;
@@ -14,4 +14,4 @@ function functionTwo() {
     createAccountLink.style.display = "none";
 }
 
-functionOne();
+initHomePage();

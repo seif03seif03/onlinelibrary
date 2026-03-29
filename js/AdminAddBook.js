@@ -1,28 +1,28 @@
 // Function One: starts the shared setup and prepares the add book form.
-function functionOne() {
+function initAddBookPage() {
     init();
-    functionTwo();
+    bindAddBookForm();
 }
 
 // Function Two: attaches submit handling to the add book form.
-function functionTwo() {
+function bindAddBookForm() {
     var form = document.getElementById("add-book-form");
     if (!form) {
         return;
     }
 
-    form.addEventListener("submit", functionThree);
+    form.addEventListener("submit", submitAddBookForm);
 }
 
 // Function Three: validates the main fields and shows a success message.
-function functionThree(event) {
+function submitAddBookForm(event) {
     event.preventDefault();
 
     var form = event.currentTarget;
     var data = getFormData(form);
     var message = document.getElementById("add-book-message");
 
-    if (!functionFour(data, message)) {
+    if (!validateBookData(data, message)) {
         return;
     }
 
@@ -31,7 +31,7 @@ function functionThree(event) {
 }
 
 // Function Four: checks the basic book values before submit.
-function functionFour(data, message) {
+function validateBookData(data, message) {
     if (data.title.trim().length < 2 || data.author.trim().length < 2 || data.category.trim().length < 2) {
         showMessage(message, "Title, author, and category are required.", "error");
         return false;
@@ -45,4 +45,4 @@ function functionFour(data, message) {
     return true;
 }
 
-functionOne();
+initAddBookPage();

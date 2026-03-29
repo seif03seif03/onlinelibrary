@@ -1,23 +1,23 @@
 // Function One: runs the shared setup and loads the selected book details.
-function functionOne() {
+function initBookDetailsPage() {
     init();
-    functionTwo();
+    loadBookDetails();
 }
 
 // Function Two: gets the selected book id from the URL and finds its details.
-function functionTwo() {
+function loadBookDetails() {
     var bookId = Number(new URLSearchParams(location.search).get("id")) || 1;
-    var book = functionThree(bookId);
+    var book = getBookDetails(bookId);
 
     if (!book) {
         return;
     }
 
-    functionFour(book);
+    renderBookDetails(book);
 }
 
 // Function Three: returns the static details for one specific book.
-function functionThree(bookId) {
+function getBookDetails(bookId) {
     var books = {
         1: {
             id: 1,
@@ -115,7 +115,7 @@ function functionThree(bookId) {
 }
 
 // Function Four: writes the selected book details into the page.
-function functionFour(book) {
+function renderBookDetails(book) {
     document.getElementById("book-title").textContent = book.title;
     document.getElementById("book-id").textContent = String(book.id);
     document.getElementById("book-author").textContent = book.author;
@@ -131,4 +131,4 @@ function functionFour(book) {
     document.getElementById("borrow-book-link").href = "BorrowBooks.html?bookId=" + book.id;
 }
 
-functionOne();
+initBookDetailsPage();

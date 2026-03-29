@@ -1,28 +1,28 @@
 // Function One: starts the shared setup and prepares the edit form.
-function functionOne() {
+function initEditBookPage() {
     init();
-    functionTwo();
+    bindEditBookForm();
 }
 
 // Function Two: attaches submit handling to the edit book form.
-function functionTwo() {
+function bindEditBookForm() {
     var form = document.getElementById("edit-book-form");
     if (!form) {
         return;
     }
 
-    form.addEventListener("submit", functionThree);
+    form.addEventListener("submit", submitEditBookForm);
 }
 
 // Function Three: validates the edited values and shows a success message.
-function functionThree(event) {
+function submitEditBookForm(event) {
     event.preventDefault();
 
     var form = event.currentTarget;
     var data = getFormData(form);
     var message = document.getElementById("edit-book-message");
 
-    if (!functionFour(data, message)) {
+    if (!validateBookData(data, message)) {
         return;
     }
 
@@ -30,7 +30,7 @@ function functionThree(event) {
 }
 
 // Function Four: checks the basic fields before saving the edit.
-function functionFour(data, message) {
+function validateBookData(data, message) {
     if (data.title.trim().length < 2 || data.author.trim().length < 2 || data.category.trim().length < 2) {
         showMessage(message, "Title, author, and category are required.", "error");
         return false;
@@ -44,4 +44,4 @@ function functionFour(data, message) {
     return true;
 }
 
-functionOne();
+initEditBookPage();

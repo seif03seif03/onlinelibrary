@@ -1,6 +1,6 @@
 // Function One: keeps this file as a small placeholder after removing page rendering logic.
-function functionOne() {
+function keepPagesPlaceholder() {
     return true;
 }
 
-functionOne();
+keepPagesPlaceholder();

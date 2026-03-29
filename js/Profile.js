@@ -1,25 +1,25 @@
 // Function One: runs the shared page setup for the profile page.
-function functionOne() {
+function initProfilePage() {
     init();
-    functionTwo();
+    fillProfileFields();
 }
 
 // Function Two: reads the current saved user and fills the profile fields.
-function functionTwo() {
+function fillProfileFields() {
     var currentUser = getCurrentUser();
     if (!currentUser) {
         return;
     }
 
-    functionThree("profile-username", currentUser.username);
-    functionThree("profile-role", functionFour(currentUser.accountType));
-    functionThree("profile-email", currentUser.email);
-    functionThree("profile-address", currentUser.address);
-    functionThree("profile-phone", currentUser.phone);
+    setProfileField("profile-username", currentUser.username);
+    setProfileField("profile-role", formatRole(currentUser.accountType));
+    setProfileField("profile-email", currentUser.email);
+    setProfileField("profile-address", currentUser.address);
+    setProfileField("profile-phone", currentUser.phone);
 }
 
 // Function Three: writes one text value into one profile field.
-function functionThree(elementId, value) {
+function setProfileField(elementId, value) {
     var element = document.getElementById(elementId);
     if (!element) {
         return;
@@ -29,7 +29,7 @@ function functionThree(elementId, value) {
 }
 
 // Function Four: formats the saved role text for display.
-function functionFour(role) {
+function formatRole(role) {
     if (!role) {
         return "User";
     }
@@ -37,4 +37,4 @@ function functionFour(role) {
     return role.charAt(0).toUpperCase() + role.slice(1);
 }
 
-functionOne();
+initProfilePage();

@@ -1,32 +1,32 @@
 // Function One: starts the shared setup and prepares the login form.
-function functionOne() {
+function initLoginPage() {
     init();
-    functionTwo();
+    bindLoginForm();
 }
 
 // Function Two: attaches the submit event to the login form.
-function functionTwo() {
+function bindLoginForm() {
     var form = document.getElementById("login-form");
     if (!form) {
         return;
     }
 
-    form.addEventListener("submit", functionThree);
+    form.addEventListener("submit", submitLoginForm);
 }
 
 // Function Three: validates the form, checks the account, and redirects after login.
-function functionThree(event) {
+function submitLoginForm(event) {
     event.preventDefault();
 
     var form = event.currentTarget;
     var message = document.getElementById("login-message");
     var data = getFormData(form);
 
-    if (!functionFour(data, message)) {
+    if (!validateLoginData(data, message)) {
         return;
     }
 
-    var user = functionFive(data.identifier, data.password);
+    var user = findUserAccount(data.identifier, data.password);
     if (!user) {
         showMessage(message, "Incorrect login details. Try again.", "error");
         return;
@@ -41,7 +41,7 @@ function functionThree(event) {
 }
 
 // Function Four: checks that the basic required fields are filled correctly.
-function functionFour(data, message) {
+function validateLoginData(data, message) {
     if (!data.identifier.trim() || !data.password.trim()) {
         showMessage(message, "Please enter username or email and password.", "error");
         return false;
@@ -51,7 +51,7 @@ function functionFour(data, message) {
 }
 
 // Function Five: searches the static demo accounts saved in local storage.
-function functionFive(identifier, password) {
+function findUserAccount(identifier, password) {
     var normalizedValue = identifier.trim().toLowerCase();
 
     return getUsers().find(function (user) {
@@ -61,4 +61,4 @@ function functionFive(identifier, password) {
     });
 }
 
-functionOne();
+initLoginPage();

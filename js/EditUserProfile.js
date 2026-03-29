@@ -1,28 +1,28 @@
 // Function One: starts the shared page setup and prepares the profile form.
-function functionOne() {
+function initEditProfilePage() {
     init();
-    functionTwo();
+    bindEditProfileForm();
 }
 
 // Function Two: attaches the submit event to the edit profile form.
-function functionTwo() {
+function bindEditProfileForm() {
     var form = document.getElementById("edit-profile-form");
     if (!form) {
         return;
     }
 
-    form.addEventListener("submit", functionThree);
+    form.addEventListener("submit", submitEditProfileForm);
 }
 
 // Function Three: validates the values and saves the simple updated profile.
-function functionThree(event) {
+function submitEditProfileForm(event) {
     event.preventDefault();
 
     var form = event.currentTarget;
     var message = document.getElementById("edit-profile-message");
     var data = getFormData(form);
 
-    if (!functionFour(data, message)) {
+    if (!validateProfileData(data, message)) {
         return;
     }
 
@@ -47,7 +47,7 @@ function functionThree(event) {
 }
 
 // Function Four: checks the form fields before saving the profile.
-function functionFour(data, message) {
+function validateProfileData(data, message) {
     if (data.username.trim().length < 3) {
         showMessage(message, "Username must be at least 3 characters.", "error");
         return false;
@@ -71,4 +71,4 @@ function functionFour(data, message) {
     return true;
 }
 
-functionOne();
+initEditProfilePage();

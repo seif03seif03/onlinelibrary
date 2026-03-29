@@ -1,11 +1,11 @@
 // Function One: starts the shared setup for the my books page.
-function functionOne() {
+function initMyBooksPage() {
     init();
-    functionTwo();
+    showBorrowedBooksMessage();
 }
 
 // Function Two: shows a simple summary message for the static table.
-function functionTwo() {
+function showBorrowedBooksMessage() {
     var message = document.getElementById("my-books-message");
     var rows = document.querySelectorAll("#my-books-body tr");
 
@@ -16,4 +16,4 @@ function functionTwo() {
     showMessage(message, rows.length + " borrowed book(s) shown.", rows.length ? "success" : "error");
 }
 
-functionOne();
+initMyBooksPage();

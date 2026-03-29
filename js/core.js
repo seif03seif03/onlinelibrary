@@ -9,13 +9,13 @@ var FALLBACK_IMAGE = "images/thegreatgatsby.jpg";
 
 // Function One: starts the shared setup used by all pages.
 function init() {
-    functionTwo();
+    seedDemoData();
     setupNavbar();
     highlightNav();
 }
 
 // Function Two: saves simple static demo data for forms and login.
-function functionTwo() {
+function seedDemoData() {
     if (!read(STORAGE_KEYS.books)) {
         write(STORAGE_KEYS.books, [
             { id: 1, title: "The Great Gatsby", author: "F. Scott Fitzgerald", category: "Classic", description: "A polished portrait of glamour, longing, and the cost of chasing an impossible dream." },

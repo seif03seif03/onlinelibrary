@@ -1,28 +1,28 @@
 // Function One: starts the shared setup and prepares the signup form.
-function functionOne() {
+function initSignupPage() {
     init();
-    functionTwo();
+    bindSignupForm();
 }
 
 // Function Two: connects the submit event for the signup form.
-function functionTwo() {
+function bindSignupForm() {
     var form = document.getElementById("signup-form");
     if (!form) {
         return;
     }
 
-    form.addEventListener("submit", functionThree);
+    form.addEventListener("submit", submitSignupForm);
 }
 
 // Function Three: validates signup values and saves a simple demo account.
-function functionThree(event) {
+function submitSignupForm(event) {
     event.preventDefault();
 
     var form = event.currentTarget;
     var data = getFormData(form);
     var message = document.getElementById("signup-message");
 
-    if (!functionFour(data, message)) {
+    if (!validateSignupData(data, message)) {
         return;
     }
 
@@ -49,7 +49,7 @@ function functionThree(event) {
 }
 
 // Function Four: checks the required signup fields before saving.
-function functionFour(data, message) {
+function validateSignupData(data, message) {
     if (data.username.trim().length < 3) {
         showMessage(message, "Username must be at least 3 characters.", "error");
         return false;
@@ -78,4 +78,4 @@ function functionFour(data, message) {
     return true;
 }
 
-functionOne();
+initSignupPage();
