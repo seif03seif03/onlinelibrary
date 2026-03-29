@@ -6,7 +6,7 @@
     <title>Online Library | Home</title>
     <link rel="stylesheet" href="css/index.css">
 </head>
-<body data-page="home">
+<body>
     <header class="site-header">
         <nav class="navbar">
             <a class="brand" href="index.html">Online Library</a>
@@ -32,15 +32,15 @@
                 <p class="hero-copy">Explore the library collection, search by title or category, borrow available books, and manage your profile with a simple front-end workflow.</p>
                 <div class="hero-actions">
                     <a class="button button-primary" href="AllBooks.html">Browse Books</a>
-                    <a class="button button-secondary" href="Signup.html">Create Account</a>
+                    <a id="create-account-link" class="button button-secondary" href="Signup.html">Create Account</a>
                 </div>
             </div>
             <aside class="hero-card">
                 <h2>Library Highlights</h2>
                 <ul class="stats-list">
-                    <li><strong id="stat-books">0</strong><span>Total Books</span></li>
-                    <li><strong id="stat-available">0</strong><span>Available Copies</span></li>
-                    <li><strong id="stat-users">0</strong><span>Registered Users</span></li>
+                    <li><strong>24</strong><span>Total Books</span></li>
+                    <li><strong>11</strong><span>Available Copies</span></li>
+                    <li><strong>8</strong><span>Registered Users</span></li>
                 </ul>
             </aside>
         </section>
@@ -53,7 +53,64 @@
                 </div>
                 <a class="button button-secondary" href="AllBooks.html">View All Books</a>
             </div>
-            <div id="featured-books" class="book-grid"></div>
+            <div class="book-grid">
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="images/thegreatgatsby.jpg" alt="The Great Gatsby">
+                    </div>
+                    <div class="book-copy">
+                        <h3>The Great Gatsby</h3>
+                        <p>by F. Scott Fitzgerald</p>
+                        <p>A polished Jazz Age drama about wealth, longing, and broken illusions.</p>
+                    </div>
+                    <div class="book-meta">
+                        <span class="tag">Classic</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                    <div class="inline-actions">
+                        <a class="button button-secondary" href="User/BookDetails.html?id=1">More Info</a>
+                        <a class="button button-primary" href="User/BorrowBooks.html?bookId=1">Borrow</a>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="images/Fahrenheit 451 by Ray Bradbury.jpg" alt="Fahrenheit 451">
+                    </div>
+                    <div class="book-copy">
+                        <h3>Fahrenheit 451</h3>
+                        <p>by Ray Bradbury</p>
+                        <p>A fast dystopian novel where books are outlawed and memory becomes resistance.</p>
+                    </div>
+                    <div class="book-meta">
+                        <span class="tag">Dystopian</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                    <div class="inline-actions">
+                        <a class="button button-secondary" href="User/BookDetails.html?id=5">More Info</a>
+                        <a class="button button-primary" href="User/BorrowBooks.html?bookId=5">Borrow</a>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="images/ASOIAF.jpg" alt="A Song of Ice and Fire">
+                    </div>
+                    <div class="book-copy">
+                        <h3>A Song of Ice and Fire</h3>
+                        <p>by George R.R. Martin</p>
+                        <p>An epic fantasy saga packed with rival houses, prophecy, and dangerous politics.</p>
+                    </div>
+                    <div class="book-meta">
+                        <span class="tag">Fantasy</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                    <div class="inline-actions">
+                        <a class="button button-secondary" href="User/BookDetails.html?id=9">More Info</a>
+                        <a class="button button-primary" href="User/BorrowBooks.html?bookId=9">Borrow</a>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 
@@ -64,7 +121,6 @@
 
     <script src="js/core.js"></script>
     <script src="js/shared-navbar.js"></script>
-    <script src="js/pages.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>

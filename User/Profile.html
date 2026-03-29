@@ -6,7 +6,7 @@
     <title>Online Library | My Profile</title>
     <link rel="stylesheet" href="../css/Profile.css">
 </head>
-<body data-page="profile">
+<body>
     <header class="site-header">
         <nav class="navbar">
             <a class="brand" href="../index.html">Online Library</a>
@@ -28,7 +28,28 @@
         <section class="section-card">
             <p class="eyebrow">Account Overview</p>
             <h1>My Profile</h1>
-            <div id="profile-details" class="profile-grid"></div>
+            <div class="profile-grid">
+                <article class="profile-item">
+                    <span>Username</span>
+                    <strong id="profile-username">reader</strong>
+                </article>
+                <article class="profile-item">
+                    <span>Role</span>
+                    <strong id="profile-role">User</strong>
+                </article>
+                <article class="profile-item">
+                    <span>Email</span>
+                    <strong id="profile-email">reader@library.com</strong>
+                </article>
+                <article class="profile-item">
+                    <span>Address</span>
+                    <strong id="profile-address">Cairo, Egypt</strong>
+                </article>
+                <article class="profile-item">
+                    <span>Phone Number</span>
+                    <strong id="profile-phone">01111111111</strong>
+                </article>
+            </div>
             <div class="inline-actions">
                 <a class="button button-primary" href="EditUserProfile.html">Edit Profile</a>
                 <a class="button button-secondary" href="MyBooks.html">View My Books</a>
@@ -38,7 +59,6 @@
 
     <script src="../js/core.js"></script>
     <script src="../js/shared-navbar.js"></script>
-    <script src="../js/pages.js"></script>
     <script src="../js/Profile.js"></script>
 </body>
 </html>

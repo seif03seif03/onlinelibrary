@@ -1,3 +1,4 @@
+// Function One: rebuilds the navbar links based on the current saved role.
 function setupNavbar() {
     var navList = document.querySelector(".nav-links");
     if (!navList) {
@@ -32,6 +33,7 @@ function setupNavbar() {
     });
 }
 
+// Function Two: highlights the current page link in the navbar.
 function highlightNav() {
     var current = location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll(".nav-links a").forEach(function (link) {
@@ -42,6 +44,7 @@ function highlightNav() {
     });
 }
 
+// Function Three: returns navbar links for guest pages.
 function getGuestNavLinks() {
     return [
         { label: "Home", href: navPath("index.html", "../index.html", "../index.html") },
@@ -52,6 +55,7 @@ function getGuestNavLinks() {
     ];
 }
 
+// Function Four: returns navbar links for regular user pages.
 function getUserNavLinks() {
     return [
         { label: "Home", href: navPath("index.html", "../index.html", "../index.html") },
@@ -64,6 +68,7 @@ function getUserNavLinks() {
     ];
 }
 
+// Function Five: returns navbar links for admin pages.
 function getAdminNavLinks() {
     return [
         { label: "Home", href: navPath("index.html", "../index.html", "../index.html") },

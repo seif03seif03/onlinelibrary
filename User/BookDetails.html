@@ -6,7 +6,7 @@
     <title>Online Library | Book Details</title>
     <link rel="stylesheet" href="../css/BookDetails.css">
 </head>
-<body data-page="details">
+<body>
     <header class="site-header">
         <nav class="navbar">
             <a class="brand" href="../index.html">Online Library</a>
@@ -25,12 +25,29 @@
     </header>
 
     <main class="page-shell narrow-shell">
-        <section id="book-details" class="section-card"></section>
+        <section class="section-card">
+            <p class="eyebrow">Book Details</p>
+            <h1 id="book-title">Pride and Prejudice</h1>
+            <div class="book-cover detail-cover">
+                <img id="book-image" src="../images/Pride and Prejudice.jpg" alt="Pride and Prejudice">
+            </div>
+            <dl class="detail-list">
+                <div><dt>Book ID</dt><dd id="book-id">7</dd></div>
+                <div><dt>Author</dt><dd id="book-author">Jane Austen</dd></div>
+                <div><dt>Category</dt><dd id="book-category">Romance</dd></div>
+                <div><dt>Description</dt><dd id="book-description">A witty and elegant novel that follows Elizabeth Bennet as she confronts pride, prejudice, and unexpected love.</dd></div>
+                <div><dt>Status</dt><dd id="book-status">Available for borrowing</dd></div>
+                <div><dt>Available Copies</dt><dd id="book-copies">5</dd></div>
+            </dl>
+            <div class="inline-actions detail-actions">
+                <a id="borrow-book-link" class="button button-primary" href="BorrowBooks.html?bookId=7">Borrow This Book</a>
+                <a class="button button-secondary" href="../AllBooks.html">Back to Books</a>
+            </div>
+        </section>
     </main>
 
     <script src="../js/core.js"></script>
     <script src="../js/shared-navbar.js"></script>
-    <script src="../js/pages.js"></script>
     <script src="../js/BookDetails.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
     <title>Online Library | All Books</title>
     <link rel="stylesheet" href="css/AllBooks.css">
 </head>
-<body data-page="books">
+<body>
     <header class="site-header">
         <nav class="navbar">
             <a class="brand" href="index.html">Online Library</a>
@@ -33,13 +33,147 @@
                 </div>
                 <a class="button button-secondary" href="User/SearchBook.html">Advanced Search</a>
             </div>
-            <div id="all-books" class="book-grid"></div>
+            <div class="book-grid">
+                <article class="book-card">
+                    <div class="book-cover"><img src="images/thegreatgatsby.jpg" alt="The Great Gatsby"></div>
+                    <h3>The Great Gatsby</h3>
+                    <p>F. Scott Fitzgerald</p>
+                    <p>A polished portrait of parties, obsession, and the hollow promise of the American Dream.</p>
+                    <div class="book-meta">
+                        <span class="tag">Classic</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                    <div class="inline-actions">
+                        <a class="button button-secondary" href="User/BookDetails.html?id=1">Details</a>
+                        <a class="button button-primary" href="User/BorrowBooks.html?bookId=1">Borrow</a>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover"><img src="images/To Kill a Mockingbird.jpg" alt="To Kill a Mockingbird"></div>
+                    <h3>To Kill a Mockingbird</h3>
+                    <p>Harper Lee</p>
+                    <p>A humane courtroom story about conscience, prejudice, and moral courage in a small town.</p>
+                    <div class="book-meta">
+                        <span class="tag">Novel</span>
+                        <span class="tag danger">Unavailable</span>
+                    </div>
+                    <div class="inline-actions">
+                        <a class="button button-secondary" href="User/BookDetails.html?id=2">Details</a>
+                        <a class="button button-secondary" href="AllBooks.html">View</a>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover"><img src="images/1984 by George Orwell.jpg" alt="1984"></div>
+                    <h3>1984</h3>
+                    <p>George Orwell</p>
+                    <p>A chilling dystopian warning about surveillance, language control, and the erasure of truth.</p>
+                    <div class="book-meta">
+                        <span class="tag">Sci-Fi</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                    <div class="inline-actions">
+                        <a class="button button-secondary" href="User/BookDetails.html?id=3">Details</a>
+                        <a class="button button-primary" href="User/BorrowBooks.html?bookId=3">Borrow</a>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover"><img src="images/thehobbit.jpg" alt="The Hobbit"></div>
+                    <h3>The Hobbit</h3>
+                    <p>J.R.R. Tolkien</p>
+                    <p>A warm adventure tale following Bilbo from quiet comfort into dragons, riddles, and courage.</p>
+                    <div class="book-meta">
+                        <span class="tag">Fantasy</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                    <div class="inline-actions">
+                        <a class="button button-secondary" href="User/BookDetails.html?id=4">Details</a>
+                        <a class="button button-primary" href="User/BorrowBooks.html?bookId=4">Borrow</a>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover"><img src="images/Fahrenheit 451 by Ray Bradbury.jpg" alt="Fahrenheit 451"></div>
+                    <h3>Fahrenheit 451</h3>
+                    <p>Ray Bradbury</p>
+                    <p>A fast dystopian novel where forbidden books become sparks for memory and rebellion.</p>
+                    <div class="book-meta">
+                        <span class="tag">Dystopian</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                    <div class="inline-actions">
+                        <a class="button button-secondary" href="User/BookDetails.html?id=5">Details</a>
+                        <a class="button button-primary" href="User/BorrowBooks.html?bookId=5">Borrow</a>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover"><img src="images/mobydick.jpg" alt="Moby-Dick"></div>
+                    <h3>Moby-Dick</h3>
+                    <p>Herman Melville</p>
+                    <p>A stormy sea voyage that turns into a haunting meditation on revenge and obsession.</p>
+                    <div class="book-meta">
+                        <span class="tag">Adventure</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                    <div class="inline-actions">
+                        <a class="button button-secondary" href="User/BookDetails.html?id=6">Details</a>
+                        <a class="button button-primary" href="User/BorrowBooks.html?bookId=6">Borrow</a>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover"><img src="images/Pride and Prejudice.jpg" alt="Pride and Prejudice"></div>
+                    <h3>Pride and Prejudice</h3>
+                    <p>Jane Austen</p>
+                    <p>A witty romance of sharp dialogue, first impressions, and emotional growth.</p>
+                    <div class="book-meta">
+                        <span class="tag">Romance</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                    <div class="inline-actions">
+                        <a class="button button-secondary" href="User/BookDetails.html?id=7">Details</a>
+                        <a class="button button-primary" href="User/BorrowBooks.html?bookId=7">Borrow</a>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover"><img src="images/The Catcher in the Rye.jpg" alt="The Catcher in the Rye"></div>
+                    <h3>The Catcher in the Rye</h3>
+                    <p>J.D. Salinger</p>
+                    <p>A restless coming-of-age story filled with loneliness, rebellion, and youthful voice.</p>
+                    <div class="book-meta">
+                        <span class="tag">Coming-of-Age</span>
+                        <span class="tag danger">Unavailable</span>
+                    </div>
+                    <div class="inline-actions">
+                        <a class="button button-secondary" href="User/BookDetails.html?id=8">Details</a>
+                        <a class="button button-secondary" href="AllBooks.html">View</a>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover"><img src="images/ASOIAF.jpg" alt="A Song of Ice and Fire"></div>
+                    <h3>A Song of Ice and Fire</h3>
+                    <p>George R.R. Martin</p>
+                    <p>An epic fantasy saga of rival families, fragile alliances, and power won at a price.</p>
+                    <div class="book-meta">
+                        <span class="tag">Epic Fantasy</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                    <div class="inline-actions">
+                        <a class="button button-secondary" href="User/BookDetails.html?id=9">Details</a>
+                        <a class="button button-primary" href="User/BorrowBooks.html?bookId=9">Borrow</a>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 
     <script src="js/core.js"></script>
     <script src="js/shared-navbar.js"></script>
-    <script src="js/pages.js"></script>
     <script src="js/AllBooks.js"></script>
 </body>
 </html>

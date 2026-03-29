@@ -6,62 +6,27 @@ var STORAGE_KEYS = {
 };
 
 var FALLBACK_IMAGE = "images/thegreatgatsby.jpg";
-var page = document.body.dataset.page || "";
 
+// Function One: starts the shared setup used by all pages.
 function init() {
-    seedData();
+    functionTwo();
     setupNavbar();
     highlightNav();
-    runPage();
 }
 
-function seedData() {
+// Function Two: saves simple static demo data for forms and login.
+function functionTwo() {
     if (!read(STORAGE_KEYS.books)) {
         write(STORAGE_KEYS.books, [
-            {
-                id: 1,
-                title: "The Great Gatsby",
-                author: "F. Scott Fitzgerald",
-                category: "Classic",
-                description: "A novel about ambition, illusion, and the cost of chasing a dream.",
-                image: "images/thegreatgatsby.jpg",
-                isActive: true,
-                canBorrow: true,
-                availableCopies: 4
-            },
-            {
-                id: 2,
-                title: "To Kill a Mockingbird",
-                author: "Harper Lee",
-                category: "Novel",
-                description: "A thoughtful story about justice, empathy, and courage.",
-                image: "images/To Kill a Mockingbird.jpg",
-                isActive: true,
-                canBorrow: false,
-                availableCopies: 0
-            },
-            {
-                id: 3,
-                title: "1984",
-                author: "George Orwell",
-                category: "Science Fiction",
-                description: "A dystopian story about surveillance, control, and truth.",
-                image: "images/1984 by George Orwell.jpg",
-                isActive: true,
-                canBorrow: true,
-                availableCopies: 3
-            },
-            {
-                id: 4,
-                title: "The Hobbit",
-                author: "J.R.R. Tolkien",
-                category: "Fantasy",
-                description: "A fantasy adventure following Bilbo on an unexpected journey.",
-                image: "images/thehobbit.jpg",
-                isActive: true,
-                canBorrow: true,
-                availableCopies: 5
-            }
+            { id: 1, title: "The Great Gatsby", author: "F. Scott Fitzgerald", category: "Classic", description: "A polished portrait of glamour, longing, and the cost of chasing an impossible dream." },
+            { id: 2, title: "To Kill a Mockingbird", author: "Harper Lee", category: "Novel", description: "A humane story about justice, empathy, and courage in a divided Southern town." },
+            { id: 3, title: "1984", author: "George Orwell", category: "Science Fiction", description: "A chilling dystopian warning about surveillance, propaganda, and truth erased by power." },
+            { id: 4, title: "The Hobbit", author: "J.R.R. Tolkien", category: "Fantasy", description: "A warm fantasy adventure that turns an unlikely hero into a brave traveler." },
+            { id: 5, title: "Fahrenheit 451", author: "Ray Bradbury", category: "Dystopian", description: "A swift dystopian novel where reading becomes rebellion in a numbed-out society." },
+            { id: 6, title: "Moby-Dick", author: "Herman Melville", category: "Adventure", description: "A vast sea voyage transformed by obsession, vengeance, and the mystery of the whale." },
+            { id: 7, title: "Pride and Prejudice", author: "Jane Austen", category: "Romance", description: "A witty romantic classic about manners, misunderstanding, and emotional honesty." },
+            { id: 8, title: "The Catcher in the Rye", author: "J.D. Salinger", category: "Coming-of-Age", description: "A deeply personal coming-of-age novel shaped by loneliness and teenage unrest." },
+            { id: 9, title: "A Song of Ice and Fire", author: "George R.R. Martin", category: "Epic Fantasy", description: "An epic fantasy world of rival houses, fragile alliances, and ambition sharpened by war." }
         ]);
     }
 
@@ -89,154 +54,107 @@ function seedData() {
     }
 
     if (!read(STORAGE_KEYS.borrowings)) {
-        write(STORAGE_KEYS.borrowings, []);
+        write(STORAGE_KEYS.borrowings, [
+            {
+                id: 301,
+                userId: 2,
+                bookId: 1,
+                bookTitle: "The Great Gatsby",
+                borrowDate: "2026-03-20",
+                returnDate: "2026-04-02",
+                status: "Borrowed"
+            }
+        ]);
     }
 }
 
-function runPage() {
-    switch (page) {
-        case "home":
-            renderStats();
-            renderBooksGrid("featured-books", getBooks().slice(0, 3));
-            break;
-        case "books":
-            renderBooksGrid("all-books", getBooks());
-            break;
-        case "signup":
-            bindSignup();
-            break;
-        case "login":
-            bindLogin();
-            break;
-        case "search":
-            bindSearch();
-            break;
-        case "details":
-            renderBookDetails();
-            break;
-        case "borrow":
-            bindBorrow();
-            break;
-        case "my-books":
-            renderMyBooks();
-            break;
-        case "profile":
-            renderProfile();
-            break;
-        case "edit-profile":
-            bindProfileEdit();
-            break;
-        case "manage-books":
-            bindManageBooks();
-            break;
-        case "add-book":
-            bindAddBook();
-            break;
-        case "edit-book":
-            bindEditBook();
-            break;
-        default:
-            break;
-    }
-}
-
+// Function Three: reads the saved book list from local storage.
 function getBooks() {
     return read(STORAGE_KEYS.books) || [];
 }
 
+// Function Four: reads the saved user list from local storage.
 function getUsers() {
     return read(STORAGE_KEYS.users) || [];
 }
 
+// Function Five: reads the saved borrowing list from local storage.
 function getBorrowings() {
     return read(STORAGE_KEYS.borrowings) || [];
 }
 
+// Function Six: reads the current logged in user from local storage.
 function getCurrentUser() {
     return read(STORAGE_KEYS.currentUser);
 }
 
+// Function Seven: reads and parses a value from local storage.
 function read(key) {
     var value = localStorage.getItem(key);
     return value ? JSON.parse(value) : null;
 }
 
+// Function Eight: saves a value in local storage.
 function write(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
 }
 
+// Function Nine: collects form values in a simple object.
 function getFormData(form) {
     return Object.fromEntries(new FormData(form).entries());
 }
 
+// Function Ten: returns the next numeric id for a collection.
 function nextId(collection) {
     return collection.length ? Math.max.apply(null, collection.map(function (item) {
         return Number(item.id);
     })) + 1 : 1;
 }
 
+// Function Eleven: writes a message and style class into a message element.
 function showMessage(element, message, type) {
     if (!element) {
         return;
     }
+
     element.textContent = message;
     element.className = "form-message " + type;
 }
 
+// Function Twelve: checks whether an email value looks valid.
 function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 }
 
+// Function Thirteen: checks whether a password is strong enough.
 function isStrongPassword(password) {
     return /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(password);
 }
 
+// Function Fourteen: checks whether a phone number format is valid.
 function isValidPhone(phone) {
     return /^\+?\d{10,15}$/.test(phone.trim());
 }
 
-function setText(id, value) {
-    var element = document.getElementById(id);
-    if (element) {
-        element.textContent = value;
-    }
-}
-
-function detailPath(bookId) {
-    return isRootPage() ? "User/BookDetails.html?id=" + bookId : "BookDetails.html?id=" + bookId;
-}
-
-function borrowPath(bookId) {
-    return isRootPage() ? "User/BorrowBooks.html?bookId=" + bookId : "BorrowBooks.html?bookId=" + bookId;
-}
-
+// Function Fifteen: returns the right path based on the current folder.
 function navPath(rootPath, userPath, adminPath) {
     if (location.pathname.includes("/User/")) {
         return userPath;
     }
+
     if (location.pathname.includes("/Admin/")) {
         return adminPath;
     }
+
     return rootPath;
 }
 
+// Function Sixteen: checks whether the current page is in the root folder.
 function isRootPage() {
     return !location.pathname.includes("/User/") && !location.pathname.includes("/Admin/");
 }
 
-function normalizeImagePath(path) {
-    if (!path) {
-        path = FALLBACK_IMAGE;
-    }
-    if (path.startsWith("data:") || path.startsWith("http")) {
-        return path;
-    }
-    if (isRootPage()) {
-        return path.replace(/^\.\.\//, "");
-    }
-    return path.startsWith("../") ? path : "../" + path;
-}
-
+// Function Seventeen: escapes text before showing it inside HTML.
 function escapeHtml(value) {
     return String(value)
         .replace(/&/g, "&amp;")
@@ -244,20 +162,4 @@ function escapeHtml(value) {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#39;");
-}
-
-function fileToDataUrl(file, fallbackPath) {
-    if (!file) {
-        return Promise.resolve(fallbackPath);
-    }
-    return new Promise(function (resolve, reject) {
-        var reader = new FileReader();
-        reader.onload = function () {
-            resolve(String(reader.result));
-        };
-        reader.onerror = function () {
-            reject(new Error("Unable to read image file."));
-        };
-        reader.readAsDataURL(file);
-    });
 }

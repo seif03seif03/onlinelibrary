@@ -6,7 +6,7 @@
     <title>Online Library | Edit Book</title>
     <link rel="stylesheet" href="../css/AdminEditBook.css">
 </head>
-<body data-page="edit-book">
+<body>
     <header class="site-header">
         <nav class="navbar">
             <a class="brand" href="../index.html">Online Library</a>
@@ -30,19 +30,19 @@
             <h1>Edit Book</h1>
             <form id="edit-book-form" class="stack-form" novalidate>
                 <label for="edit-book-id">Book ID</label>
-                <input id="edit-book-id" name="id" type="number" readonly>
+                <input id="edit-book-id" name="id" type="number" value="5" readonly>
                 <label for="edit-title">Book Name</label>
-                <input id="edit-title" name="title" type="text" required>
+                <input id="edit-title" name="title" type="text" value="Fahrenheit 451" required>
                 <label for="edit-author">Author</label>
-                <input id="edit-author" name="author" type="text" required>
+                <input id="edit-author" name="author" type="text" value="Ray Bradbury" required>
                 <label for="edit-category">Category</label>
-                <input id="edit-category" name="category" type="text" required>
+                <input id="edit-category" name="category" type="text" value="Dystopian" required>
                 <label for="edit-description">Description</label>
-                <textarea id="edit-description" name="description" rows="4" required></textarea>
+                <textarea id="edit-description" name="description" rows="4" required>A fast dystopian novel where books are outlawed and memory becomes an act of rebellion.</textarea>
                 <label for="edit-copies">Available Copies</label>
-                <input id="edit-copies" name="availableCopies" type="number" min="0" required>
-                <label class="checkbox-row"><input id="edit-active" name="isActive" type="checkbox"> Is Active</label>
-                <label class="checkbox-row"><input id="edit-borrowable" name="canBorrow" type="checkbox"> Can User Borrow?</label>
+                <input id="edit-copies" name="availableCopies" type="number" min="0" value="4" required>
+                <label class="checkbox-row"><input id="edit-active" name="isActive" type="checkbox" checked> Is Active</label>
+                <label class="checkbox-row"><input id="edit-borrowable" name="canBorrow" type="checkbox" checked> Can User Borrow?</label>
                 <p id="edit-book-message" class="form-message" aria-live="polite"></p>
                 <button class="button button-primary" type="submit">Update Book</button>
             </form>
@@ -51,7 +51,6 @@
 
     <script src="../js/core.js"></script>
     <script src="../js/shared-navbar.js"></script>
-    <script src="../js/pages.js"></script>
     <script src="../js/AdminEditBook.js"></script>
 </body>
 </html>

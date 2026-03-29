@@ -6,7 +6,7 @@
     <title>Online Library | Search Books</title>
     <link rel="stylesheet" href="../css/SearchBook.css">
 </head>
-<body data-page="search">
+<body>
     <header class="site-header">
         <nav class="navbar">
             <a class="brand" href="../index.html">Online Library</a>
@@ -41,6 +41,15 @@
                     <label for="search-category">Category</label>
                     <select id="search-category" name="category">
                         <option value="">All Categories</option>
+                        <option value="classic">Classic</option>
+                        <option value="novel">Novel</option>
+                        <option value="science fiction">Science Fiction</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="dystopian">Dystopian</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="romance">Romance</option>
+                        <option value="coming-of-age">Coming-of-Age</option>
+                        <option value="epic fantasy">Epic Fantasy</option>
                     </select>
                 </div>
                 <div class="filter-actions">
@@ -49,13 +58,103 @@
                 </div>
             </form>
             <p id="search-message" class="form-message" aria-live="polite"></p>
-            <div id="search-results" class="book-grid"></div>
+            <div id="search-results" class="book-grid">
+                <article class="book-card" data-title="the great gatsby" data-author="f. scott fitzgerald" data-category="classic">
+                    <div class="book-cover"><img src="../images/thegreatgatsby.jpg" alt="The Great Gatsby"></div>
+                    <h3>The Great Gatsby</h3>
+                    <p>F. Scott Fitzgerald</p>
+                    <p>A polished portrait of glamour, longing, and the cost of chasing an impossible dream.</p>
+                    <div class="book-meta">
+                        <span class="tag">Classic</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                </article>
+                <article class="book-card" data-title="to kill a mockingbird" data-author="harper lee" data-category="novel">
+                    <div class="book-cover"><img src="../images/To Kill a Mockingbird.jpg" alt="To Kill a Mockingbird"></div>
+                    <h3>To Kill a Mockingbird</h3>
+                    <p>Harper Lee</p>
+                    <p>A compassionate novel about justice, memory, and doing what is right under pressure.</p>
+                    <div class="book-meta">
+                        <span class="tag">Novel</span>
+                        <span class="tag danger">Reserved</span>
+                    </div>
+                </article>
+                <article class="book-card" data-title="1984" data-author="george orwell" data-category="science fiction">
+                    <div class="book-cover"><img src="../images/1984 by George Orwell.jpg" alt="1984"></div>
+                    <h3>1984</h3>
+                    <p>George Orwell</p>
+                    <p>A dark futuristic warning about fear, propaganda, and the rewriting of reality.</p>
+                    <div class="book-meta">
+                        <span class="tag">Science Fiction</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                </article>
+                <article class="book-card" data-title="the hobbit" data-author="j.r.r. tolkien" data-category="fantasy">
+                    <div class="book-cover"><img src="../images/thehobbit.jpg" alt="The Hobbit"></div>
+                    <h3>The Hobbit</h3>
+                    <p>J.R.R. Tolkien</p>
+                    <p>A classic fantasy quest filled with treasure, danger, and unexpected bravery.</p>
+                    <div class="book-meta">
+                        <span class="tag">Fantasy</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                </article>
+                <article class="book-card" data-title="fahrenheit 451" data-author="ray bradbury" data-category="dystopian">
+                    <div class="book-cover"><img src="../images/Fahrenheit 451 by Ray Bradbury.jpg" alt="Fahrenheit 451"></div>
+                    <h3>Fahrenheit 451</h3>
+                    <p>Ray Bradbury</p>
+                    <p>A swift dystopian story where reading becomes rebellion in a numbed-out society.</p>
+                    <div class="book-meta">
+                        <span class="tag">Dystopian</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                </article>
+                <article class="book-card" data-title="moby-dick" data-author="herman melville" data-category="adventure">
+                    <div class="book-cover"><img src="../images/mobydick.jpg" alt="Moby-Dick"></div>
+                    <h3>Moby-Dick</h3>
+                    <p>Herman Melville</p>
+                    <p>A vast ocean adventure that slowly becomes a fierce study of obsession.</p>
+                    <div class="book-meta">
+                        <span class="tag">Adventure</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                </article>
+                <article class="book-card" data-title="pride and prejudice" data-author="jane austen" data-category="romance">
+                    <div class="book-cover"><img src="../images/Pride and Prejudice.jpg" alt="Pride and Prejudice"></div>
+                    <h3>Pride and Prejudice</h3>
+                    <p>Jane Austen</p>
+                    <p>A witty romantic classic about manners, misunderstanding, and emotional honesty.</p>
+                    <div class="book-meta">
+                        <span class="tag">Romance</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                </article>
+                <article class="book-card" data-title="the catcher in the rye" data-author="j.d. salinger" data-category="coming-of-age">
+                    <div class="book-cover"><img src="../images/The Catcher in the Rye.jpg" alt="The Catcher in the Rye"></div>
+                    <h3>The Catcher in the Rye</h3>
+                    <p>J.D. Salinger</p>
+                    <p>A deeply personal coming-of-age novel marked by sharp observation and teenage unrest.</p>
+                    <div class="book-meta">
+                        <span class="tag">Coming-of-Age</span>
+                        <span class="tag danger">Reserved</span>
+                    </div>
+                </article>
+                <article class="book-card" data-title="a song of ice and fire" data-author="george r.r. martin" data-category="epic fantasy">
+                    <div class="book-cover"><img src="../images/ASOIAF.jpg" alt="A Song of Ice and Fire"></div>
+                    <h3>A Song of Ice and Fire</h3>
+                    <p>George R.R. Martin</p>
+                    <p>An epic fantasy world of war councils, noble houses, and dangerous ambition.</p>
+                    <div class="book-meta">
+                        <span class="tag">Epic Fantasy</span>
+                        <span class="tag success">Available</span>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 
     <script src="../js/core.js"></script>
     <script src="../js/shared-navbar.js"></script>
-    <script src="../js/pages.js"></script>
     <script src="../js/SearchBook.js"></script>
 </body>
 </html>

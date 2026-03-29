@@ -6,7 +6,7 @@
     <title>Online Library | Borrow Book</title>
     <link rel="stylesheet" href="../css/BorrowBooks.css">
 </head>
-<body data-page="borrow">
+<body>
     <header class="site-header">
         <nav class="navbar">
             <a class="brand" href="../index.html">Online Library</a>
@@ -30,14 +30,14 @@
             <h1>Borrow a book</h1>
             <form id="borrow-form" class="stack-form" novalidate>
                 <label for="borrow-book-id">Book ID</label>
-                <input id="borrow-book-id" name="bookId" type="number" min="1" required>
+                <input id="borrow-book-id" name="bookId" type="number" min="1" value="1" required>
                 <label for="borrow-date">Borrow Date</label>
                 <input id="borrow-date" name="borrowDate" type="date" required>
                 <label for="return-date">Return Date</label>
                 <input id="return-date" name="returnDate" type="date" required>
                 <label for="borrow-address">Address</label>
                 <input id="borrow-address" name="address" type="text" required>
-                <p id="borrow-selected-book" class="info-chip"></p>
+                <p id="borrow-selected-book" class="info-chip">Selected book ID: 1</p>
                 <p id="borrow-message" class="form-message" aria-live="polite"></p>
                 <button class="button button-primary" type="submit">Submit Borrow Request</button>
             </form>
@@ -46,7 +46,6 @@
 
     <script src="../js/core.js"></script>
     <script src="../js/shared-navbar.js"></script>
-    <script src="../js/pages.js"></script>
     <script src="../js/BorrowBooks.js"></script>
 </body>
 </html>

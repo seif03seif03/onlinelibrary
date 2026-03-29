@@ -6,7 +6,7 @@
     <title>Online Library | Edit Profile</title>
     <link rel="stylesheet" href="../css/EditUserProfile.css">
 </head>
-<body data-page="edit-profile">
+<body>
     <header class="site-header">
         <nav class="navbar">
             <a class="brand" href="../index.html">Online Library</a>
@@ -30,13 +30,13 @@
             <h1>Edit Profile</h1>
             <form id="edit-profile-form" class="stack-form" novalidate>
                 <label for="edit-username">Username</label>
-                <input id="edit-username" name="username" type="text" required>
+                <input id="edit-username" name="username" type="text" value="reader" required>
                 <label for="edit-email">Email</label>
-                <input id="edit-email" name="email" type="email" required>
+                <input id="edit-email" name="email" type="email" value="reader@library.com" required>
                 <label for="edit-address">Address</label>
-                <input id="edit-address" name="address" type="text" required>
+                <input id="edit-address" name="address" type="text" value="Cairo, Egypt" required>
                 <label for="edit-phone">Phone Number</label>
-                <input id="edit-phone" name="phone" type="tel" required>
+                <input id="edit-phone" name="phone" type="tel" value="01111111111" required>
                 <p id="edit-profile-message" class="form-message" aria-live="polite"></p>
                 <button class="button button-primary" type="submit">Update Profile</button>
             </form>
@@ -45,7 +45,6 @@
 
     <script src="../js/core.js"></script>
     <script src="../js/shared-navbar.js"></script>
-    <script src="../js/pages.js"></script>
     <script src="../js/EditUserProfile.js"></script>
 </body>
 </html>

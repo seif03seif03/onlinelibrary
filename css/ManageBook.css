@@ -1,3 +1,156 @@
-@import url("./base.css");
-@import url("./layout.css");
-@import url("./components.css");
+body {
+    margin: 0;
+    background: #f2ebe2;
+    color: #2f261d;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.site-header {
+    background: #fff9f3;
+    border-bottom: 1px solid #d9ccbc;
+}
+
+.navbar,
+.page-shell {
+    width: min(1120px, calc(100% - 30px));
+    margin: 0 auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+}
+
+.brand {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a,
+.nav-role {
+    padding: 8px 12px;
+    border-radius: 999px;
+    color: #756758;
+}
+
+.nav-links a.is-active,
+.nav-links a:hover {
+    background: #eadccc;
+    color: #2f261d;
+}
+
+.page-shell {
+    padding: 34px 0;
+}
+
+.section-card {
+    background: #fff9f3;
+    border: 1px solid #d9ccbc;
+    border-radius: 24px;
+    padding: 28px;
+}
+
+.section-heading,
+.inline-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: #8e603c;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+h1 {
+    margin: 0;
+}
+
+.form-message {
+    min-height: 24px;
+    margin: 16px 0 0;
+}
+
+.form-message.success {
+    color: #2c7a55;
+}
+
+.form-message.error {
+    color: #b14949;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    margin-top: 18px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.data-table th,
+.data-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #ece0d2;
+    text-align: left;
+}
+
+.data-table th {
+    background: #f4e9dc;
+    color: #6d5339;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: 0;
+}
+
+.button-primary {
+    background: #8e603c;
+    color: #fff;
+}
+
+.button-secondary {
+    background: #efe4d7;
+}
+
+.button-danger {
+    background: #f4dddd;
+    color: #a34343;
+}
