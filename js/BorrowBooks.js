@@ -1,11 +1,35 @@
 // Function One: starts the shared setup and prepares the borrow form.
 function initBorrowBooksPage() {
     init();
+    requireSignedInUser();
     fillBorrowDefaults();
     bindBorrowForm();
 }
 
-// Function Two: fills simple default values for the borrow form.
+// Function Two: redirects guests away from the borrow form.
+function requireSignedInUser() {
+    var currentUser = getCurrentUser();
+    var message = document.getElementById("borrow-message");
+    var form = document.getElementById("borrow-form");
+
+    if (currentUser) {
+        return;
+    }
+
+    if (form) {
+        form.querySelectorAll("input, button").forEach(function (field) {
+            field.disabled = true;
+        });
+    }
+
+    showMessage(message, "Please sign in before submitting a borrow request.", "error");
+
+    setTimeout(function () {
+        location.href = "../Login.html";
+    }, 1000);
+}
+
+// Function Three: fills simple default values for the borrow form.
 function fillBorrowDefaults() {
     var addressInput = document.getElementById("borrow-address");
     var borrowDateInput = document.getElementById("borrow-date");
@@ -26,12 +50,12 @@ function fillBorrowDefaults() {
     }
 }
 
-// Function Three: attaches simple interactions to the form and book id field.
+// Function Four: attaches simple interactions to the form and book id field.
 function bindBorrowForm() {
     var form = document.getElementById("borrow-form");
     var bookInput = document.getElementById("borrow-book-id");
 
-    if (!form || !bookInput) {
+    if (!form || !bookInput || !getCurrentUser()) {
         return;
     }
 
@@ -40,7 +64,7 @@ function bindBorrowForm() {
     updateSelectedBookNote();
 }
 
-// Function Four: shows a small note about the typed book id.
+// Function Five: shows a small note about the typed book id.
 function updateSelectedBookNote() {
     var bookInput = document.getElementById("borrow-book-id");
     var info = document.getElementById("borrow-selected-book");
@@ -52,13 +76,22 @@ function updateSelectedBookNote() {
     info.textContent = bookInput.value ? "Selected book ID: " + bookInput.value : "Enter a book ID to continue.";
 }
 
-// Function Five: validates the borrow request and saves a simple demo record.
+// Function Six: validates the borrow request and saves a simple demo record.
 function submitBorrowRequest(event) {
     event.preventDefault();
 
     var form = event.currentTarget;
     var data = getFormData(form);
     var message = document.getElementById("borrow-message");
+    var currentUser = getCurrentUser();
+
+    if (!currentUser) {
+        showMessage(message, "Please sign in before submitting a borrow request.", "error");
+        setTimeout(function () {
+            location.href = "../Login.html";
+        }, 1000);
+        return;
+    }
 
     if (!data.bookId || !data.borrowDate || !data.returnDate || data.address.trim().length < 5) {
         showMessage(message, "Please complete all borrow fields.", "error");
@@ -70,7 +103,6 @@ function submitBorrowRequest(event) {
         return;
     }
 
-    var currentUser = getCurrentUser() || { id: 2 };
     var borrowings = getBorrowings();
 
     borrowings.push({
@@ -84,7 +116,11 @@ function submitBorrowRequest(event) {
     });
 
     write(STORAGE_KEYS.borrowings, borrowings);
-    showMessage(message, "Borrow request saved successfully.", "success");
+    showMessage(message, "Borrow request saved successfully. Redirecting to home page...", "success");
+
+    setTimeout(function () {
+        location.href = "../index.html";
+    }, 800);
 }
 
 initBorrowBooksPage();
