@@ -128,7 +128,15 @@ function renderBookDetails(book) {
     image.src = book.image;
     image.alt = book.title;
 
-    document.getElementById("borrow-book-link").href = "BorrowBooks.html?bookId=" + book.id;
+    var borrowLink = document.getElementById("borrow-book-link");
+    if (isAdminUser()) {
+        borrowLink.classList.add("is-hidden");
+        borrowLink.setAttribute("aria-hidden", "true");
+        borrowLink.tabIndex = -1;
+        return;
+    }
+
+    borrowLink.href = "BorrowBooks.html?bookId=" + book.id;
 }
 
 initBookDetailsPage();

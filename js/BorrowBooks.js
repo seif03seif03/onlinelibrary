@@ -1,19 +1,22 @@
 // Function One: starts the shared setup and prepares the borrow form.
 function initBorrowBooksPage() {
     init();
-    requireSignedInUser();
+    if (!requireBorrowingUser()) {
+        return;
+    }
+
     fillBorrowDefaults();
     bindBorrowForm();
 }
 
-// Function Two: redirects guests away from the borrow form.
-function requireSignedInUser() {
+// Function Two: allows only regular users to use the borrow form.
+function requireBorrowingUser() {
     var currentUser = getCurrentUser();
     var message = document.getElementById("borrow-message");
     var form = document.getElementById("borrow-form");
 
-    if (currentUser) {
-        return;
+    if (currentUser && currentUser.accountType === "user") {
+        return true;
     }
 
     if (form) {
@@ -22,11 +25,20 @@ function requireSignedInUser() {
         });
     }
 
-    showMessage(message, "Please sign in before submitting a borrow request.", "error");
+    if (isAdminUser()) {
+        showMessage(message, "Admin accounts cannot borrow books.", "error");
+        setTimeout(function () {
+            location.href = "../Admin/ManageBook.html";
+        }, 1000);
+        return false;
+    }
 
+    showMessage(message, "Please sign in before submitting a borrow request.", "error");
     setTimeout(function () {
         location.href = "../Login.html";
     }, 1000);
+
+    return false;
 }
 
 // Function Three: fills simple default values for the borrow form.
@@ -90,6 +102,11 @@ function submitBorrowRequest(event) {
         setTimeout(function () {
             location.href = "../Login.html";
         }, 1000);
+        return;
+    }
+
+    if (isAdminUser()) {
+        showMessage(message, "Admin accounts cannot borrow books.", "error");
         return;
     }
 

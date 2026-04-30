@@ -12,6 +12,7 @@ function init() {
     seedDemoData();
     setupNavbar();
     highlightNav();
+    hideAdminBorrowLinks();
 }
 
 // Function Two: saves simple static demo data for forms and login.
@@ -88,30 +89,49 @@ function getCurrentUser() {
     return read(STORAGE_KEYS.currentUser);
 }
 
-// Function Seven: reads and parses a value from local storage.
+// Function Seven: checks whether the signed in user is an admin.
+function isAdminUser() {
+    var currentUser = getCurrentUser();
+    return Boolean(currentUser && currentUser.accountType === "admin");
+}
+
+// Function Eight: hides borrow actions from admin accounts.
+function hideAdminBorrowLinks() {
+    if (!isAdminUser()) {
+        return;
+    }
+
+    document.querySelectorAll('a[href*="BorrowBooks.html"]').forEach(function (link) {
+        link.classList.add("is-hidden");
+        link.setAttribute("aria-hidden", "true");
+        link.tabIndex = -1;
+    });
+}
+
+// Function Nine: reads and parses a value from local storage.
 function read(key) {
     var value = localStorage.getItem(key);
     return value ? JSON.parse(value) : null;
 }
 
-// Function Eight: saves a value in local storage.
+// Function Ten: saves a value in local storage.
 function write(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
 }
 
-// Function Nine: collects form values in a simple object.
+// Function Eleven: collects form values in a simple object.
 function getFormData(form) {
     return Object.fromEntries(new FormData(form).entries());
 }
 
-// Function Ten: returns the next numeric id for a collection.
+// Function Twelve: returns the next numeric id for a collection.
 function nextId(collection) {
     return collection.length ? Math.max.apply(null, collection.map(function (item) {
         return Number(item.id);
     })) + 1 : 1;
 }
 
-// Function Eleven: writes a message and style class into a message element.
+// Function Thirteen: writes a message and style class into a message element.
 function showMessage(element, message, type) {
     if (!element) {
         return;
@@ -121,22 +141,22 @@ function showMessage(element, message, type) {
     element.className = "form-message " + type;
 }
 
-// Function Twelve: checks whether an email value looks valid.
+// Function Fourteen: checks whether an email value looks valid.
 function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 }
 
-// Function Thirteen: checks whether a password is strong enough.
+// Function Fifteen: checks whether a password is strong enough.
 function isStrongPassword(password) {
     return /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(password);
 }
 
-// Function Fourteen: checks whether a phone number format is valid.
+// Function Sixteen: checks whether a phone number format is valid.
 function isValidPhone(phone) {
     return /^\+?\d{10,15}$/.test(phone.trim());
 }
 
-// Function Fifteen: returns the right path based on the current folder.
+// Function Seventeen: returns the right path based on the current folder.
 function navPath(rootPath, userPath, adminPath) {
     if (location.pathname.includes("/User/")) {
         return userPath;
@@ -149,12 +169,12 @@ function navPath(rootPath, userPath, adminPath) {
     return rootPath;
 }
 
-// Function Sixteen: checks whether the current page is in the root folder.
+// Function Eighteen: checks whether the current page is in the root folder.
 function isRootPage() {
     return !location.pathname.includes("/User/") && !location.pathname.includes("/Admin/");
 }
 
-// Function Seventeen: escapes text before showing it inside HTML.
+// Function Nineteen: escapes text before showing it inside HTML.
 function escapeHtml(value) {
     return String(value)
         .replace(/&/g, "&amp;")
