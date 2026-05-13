@@ -1,0 +1,24 @@
+<header class="site-header">
+    <nav class="navbar">
+        <a class="brand" href="{% url 'index' %}">Online Library</a>
+        <ul class="nav-links">
+            <li><a href="{% url 'index' %}" class="{% if request.path == '/' %}is-active{% endif %}">Home</a></li>
+            <li><a href="{% url 'books' %}" class="{% if request.path == '/books/' %}is-active{% endif %}">Books</a></li>
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'search' %}" class="{% if request.path == '/search/' %}is-active{% endif %}">Search</a></li>
+                {% if current_role == 'user' or current_role == 'admin' %}
+                    <li><a href="{% url 'borrow' %}" class="{% if request.path == '/borrow/' %}is-active{% endif %}">Borrow</a></li>
+                    <li><a href="{% url 'my_books' %}" class="{% if request.path == '/my-books/' %}is-active{% endif %}">My Books</a></li>
+                {% endif %}
+                {% if current_role == 'admin' %}
+                    <li><a href="{% url 'manage_books' %}" class="{% if request.path == '/manage-books/' %}is-active{% endif %}">Manage Books</a></li>
+                {% endif %}
+                <li><a href="{% url 'account_profile' %}" class="{% if request.path == '/profile/' %}is-active{% endif %}">My Profile</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}" class="{% if request.path == '/login/' %}is-active{% endif %}">Login</a></li>
+                <li><a href="{% url 'signup' %}" class="{% if request.path == '/signup/' %}is-active{% endif %}">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>

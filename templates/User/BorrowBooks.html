@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="page-shell narrow-shell">
+        <section class="form-card">
+            <p class="eyebrow">Borrow Request</p>
+            <h1>Borrow a book</h1>
+            <p id="borrow-message" class="form-message" aria-live="polite"></p>
+            {% if error %}
+                <p class="form-message error">{{ error }}</p>
+            {% endif %}
+            {% if message %}
+                <p class="form-message success">{{ message }}</p>
+            {% endif %}
+            {% if selected_book %}
+                <p class="info-chip">Selected book: {{ selected_book.title }} by {{ selected_book.author }}</p>
+            {% else %}
+                <p class="section-copy">Choose a book from the books page to start a borrow request.</p>
+            {% endif %}
+            <form id="borrow-form" class="stack-form" method="post" action="{% url 'borrow' %}">
+                {% csrf_token %}
+                <label for="borrow-book-id">Available Books</label>
+                <select id="borrow-book-id" name="book_id" required>
+                    <option value="">Choose a book</option>
+                    {% for book in available_books %}
+                        <option value="{{ book.id }}" {% if selected_book and selected_book.id == book.id %}selected{% endif %}>
+                            {{ book.title }} by {{ book.author }} - {{ book.available_copies }} copies
+                        </option>
+                    {% endfor %}
+                </select>
+                <label for="borrow-date">Borrow Date</label>
+                <input id="borrow-date" name="borrow_date" type="date" value="{{ today }}" min="{{ today }}" required>
+                <label for="return-date">Return Date</label>
+                <input id="return-date" name="return_date" type="date" min="{{ today }}" required>
+                <button class="button button-primary" type="submit">Submit Borrow Request</button>
+            </form>
+        </section>
+    </main>
+{% endblock %}

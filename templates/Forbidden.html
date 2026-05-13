@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="page-shell narrow-shell">
+        <section class="section-card">
+            <p class="eyebrow">Access Restricted</p>
+            <h1>{{ title }}</h1>
+            <p class="section-copy">{{ message }}</p>
+            <div class="inline-actions">
+                <a class="button button-primary" href="{% url 'account_profile' %}">Back to Profile</a>
+                <a class="button button-secondary" href="{% url 'index' %}">Go Home</a>
+            </div>
+        </section>
+    </main>
+{% endblock %}

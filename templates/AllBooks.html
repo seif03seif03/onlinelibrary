@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+    <main class="page-shell">
+        <section class="section-card">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Catalog</p>
+                    <h1>All Books</h1>
+                    <p class="section-copy">{{ total_books }} books and {{ total_copies }} available copies across the library.</p>
+                </div>
+                {% if request.user.is_authenticated %}
+                    <a class="button button-secondary" href="{% url 'search' %}">Advanced Search</a>
+                {% endif %}
+            </div>
+            <div class="book-grid">
+                {% for book in books %}
+                    <article class="book-card">
+                        <div class="book-cover">
+                            {% if book.image %}
+                                <img src="{{ book.image.url }}" alt="{{ book.title }}">
+                            {% else %}
+                                <div class="book-cover-fallback">
+                                    <span>{{ book.title|slice:":1" }}</span>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <span class="tag {% if book.available_copies > 0 %}success{% else %}danger{% endif %}">{{ book.status }}</span>
+                        <h2>{{ book.title }}</h2>
+                        <p>by {{ book.author }}</p>
+                        <p>{{ book.description|truncatechars:120 }}</p>
+                        <p>Category: {{ book.category }}</p>
+                        <p>Available: {{ book.available_copies }} copies</p>
+                        <div class="inline-actions">
+                            <a class="button button-secondary" href="{% url 'book_details' book.id %}">Details</a>
+                            {% if current_role == 'user' and book.available_copies > 0 and book.id not in active_borrowed_book_ids %}
+                                <a class="button button-primary" href="{% url 'borrow' %}?book_id={{ book.id }}">Borrow</a>
+                            {% endif %}
+                        </div>
+                    </article>
+                {% empty %}
+                    <p class="section-copy">No books have been added yet.</p>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+{% endblock %}

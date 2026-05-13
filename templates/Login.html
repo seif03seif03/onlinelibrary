@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    <main class="page-shell narrow-shell">
+        <section class="form-card">
+            <p class="eyebrow">Welcome Back</p>
+            {% if error %}
+                <p class="form-message form-message-error">{{ error }}</p>
+            {% endif %}
+            <h1>Log in to your account</h1>
+            <p class="section-copy">Use your username or email and password to continue.</p>
+            <form id="login-form" class="stack-form"  method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                
+
+                <label for="login-identifier">Username or Email</label>
+                <input id="login-identifier" name="login-identifier" type="text" autocomplete="username" required>
+                <label for="login-password">Password</label>
+                <input id="login-password" name="login-password" type="password" autocomplete="current-password" required>
+                <p id="login-message" class="form-message" aria-live="polite"></p>
+                <button class="button button-primary" type="submit">Login</button>
+            </form>
+            <p class="form-helper">No account yet? <a href="{% url 'signup' %}">Create one here</a>.</p>
+        </section>
+    </main>
+
+{% endblock %}

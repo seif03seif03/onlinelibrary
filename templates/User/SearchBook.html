@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+    <main class="page-shell">
+        <section class="section-card">
+            <p class="eyebrow">Search Collection</p>
+            <h1>Find your next book</h1>
+            <form class="filter-grid" method="get" action="{% url 'search' %}">
+                <div>
+                    <label for="search-title">Book Title</label>
+                    <input id="search-title" name="title" type="text" value="{{ filters.title }}">
+                </div>
+                <div>
+                    <label for="search-author">Author</label>
+                    <input id="search-author" name="author" type="text" value="{{ filters.author }}">
+                </div>
+                <div>
+                    <label for="search-category">Category</label>
+                    <input id="search-category" name="category" type="text" value="{{ filters.category }}">
+                </div>
+                <div class="filter-actions">
+                    <button class="button button-primary" type="submit">Search</button>
+                    <a class="button button-secondary" href="{% url 'search' %}">Clear</a>
+                </div>
+            </form>
+            <div class="book-grid">
+                {% for book in books %}
+                    <article class="book-card">
+                        <div class="book-cover">
+                            {% if book.image %}
+                                <img src="{{ book.image.url }}" alt="{{ book.title }}">
+                            {% else %}
+                                <div class="book-cover-fallback">
+                                    <span>{{ book.title|slice:":1" }}</span>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <span class="tag {% if book.available_copies > 0 %}success{% else %}danger{% endif %}">{{ book.status }}</span>
+                        <h2>{{ book.title }}</h2>
+                        <p>by {{ book.author }}</p>
+                        <p>Category: {{ book.category }}</p>
+                        <p>{{ book.description|truncatechars:120 }}</p>
+                        <div class="inline-actions">
+                            <a class="button button-secondary" href="{% url 'book_details' book.id %}">Details</a>
+                            {% if current_role == 'user' and book.available_copies > 0 and book.id not in active_borrowed_book_ids %}
+                                <a class="button button-primary" href="{% url 'borrow' %}?book_id={{ book.id }}">Borrow</a>
+                            {% endif %}
+                        </div>
+                    </article>
+                {% empty %}
+                    <p class="section-copy">No books matched your search.</p>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+{% endblock %}

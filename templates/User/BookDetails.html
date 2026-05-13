@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+    <main class="page-shell narrow-shell">
+        <section class="section-card">
+            <p class="eyebrow">Book Details</p>
+            <h1>{{ book.title }}</h1>
+            <div class="book-cover detail-cover">
+                {% if book.image %}
+                    <img src="{{ book.image.url }}" alt="{{ book.title }}">
+                {% else %}
+                    <div class="book-cover-fallback detail-cover-fallback">
+                        <span>{{ book.title|slice:":1" }}</span>
+                    </div>
+                {% endif %}
+            </div>
+            <dl class="detail-list">
+                <div><dt>Book ID</dt><dd>{{ book.id }}</dd></div>
+                <div><dt>Author</dt><dd>{{ book.author }}</dd></div>
+                <div><dt>Category</dt><dd>{{ book.category }}</dd></div>
+                <div><dt>Description</dt><dd>{{ book.description }}</dd></div>
+                <div><dt>Status</dt><dd>{{ book.status }}</dd></div>
+                <div><dt>ISBN</dt><dd>{{ book.isbn }}</dd></div>
+                <div><dt>Available Copies</dt><dd>{{ book.available_copies }}</dd></div>
+            </dl>
+            <div class="inline-actions detail-actions">
+                {% if current_role == 'user' and book.available_copies > 0 and not already_borrowed %}
+                    <a class="button button-primary" href="{% url 'borrow' %}?book_id={{ book.id }}">Borrow This Book</a>
+                {% endif %}
+                <a class="button button-secondary" href="{% url 'books' %}">Back to Books</a>
+            </div>
+        </section>
+    </main>
+{% endblock %}

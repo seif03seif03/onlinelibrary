@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="page-shell narrow-shell">
+        <section class="form-card">
+            <p class="eyebrow">Update Profile</p>
+            <h1>Edit Profile</h1>
+            <form id="edit-profile-form" class="stack-form" method="post" action="{% url 'edit_profile' %}" novalidate>
+                {% csrf_token %}
+                <label for="edit-username">Username</label>
+                <input id="edit-username" name="username" type="text" value="{{ account.name }}" required>
+
+                <label for="edit-email">Email</label>
+                <input id="edit-email" name="email" type="email" value="{{ account.email }}" required>
+
+                <label for="edit-address">Address</label>
+                <input id="edit-address" name="address" type="text" value="{{ account.address }}" required>
+
+                <label for="edit-phone">Phone Number</label>
+                <input id="edit-phone" name="phone" type="tel" value="{{ account.phone_number }}" required>
+
+                <p id="edit-profile-message" class="form-message {% if error %}error{% endif %}" aria-live="polite">{% if error %}{{ error }}{% endif %}</p>
+
+                <div class="inline-actions">
+                    <button class="button button-primary" type="submit">Update Profile</button>
+                    <a class="button button-secondary" href="{% url 'account_profile' %}">Cancel</a>
+                </div>
+            </form>
+        </section>
+    </main>
+{% endblock %}

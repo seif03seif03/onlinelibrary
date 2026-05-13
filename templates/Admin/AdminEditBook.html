@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="page-shell narrow-shell">
+        <section class="form-card">
+            <p class="eyebrow">Admin Panel</p>
+            <h1>Edit Book</h1>
+            {% if error %}
+                <p class="form-message error">{{ error }}</p>
+            {% endif %}
+            <form class="stack-form" method="post" action="{% url 'edit_book' book.id %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="edit-title">Book Name</label>
+                <input id="edit-title" name="title" type="text" value="{{ book.title }}" required>
+                <label for="edit-author">Author</label>
+                <input id="edit-author" name="author" type="text" value="{{ book.author }}" required>
+                <label for="edit-category">Category</label>
+                <input id="edit-category" name="category" type="text" value="{{ book.category }}" required>
+                <label for="edit-description">Description</label>
+                <textarea id="edit-description" name="description" rows="4" required>{{ book.description }}</textarea>
+                <label for="edit-published-date">Published Date</label>
+                <input id="edit-published-date" name="published_date" type="date" value="{{ book.published_date|date:'Y-m-d' }}" required>
+                <label for="edit-isbn">ISBN</label>
+                <input id="edit-isbn" name="isbn" type="text" value="{{ book.isbn }}" required>
+                <label for="edit-copies">Available Copies</label>
+                <input id="edit-copies" name="available_copies" type="number" min="0" value="{{ book.available_copies }}" required>
+                <label for="edit-image">Replace Book Image</label>
+                <input id="edit-image" name="image" type="file" accept="image/*">
+                <div class="inline-actions">
+                    <button class="button button-primary" type="submit">Update Book</button>
+                    <a class="button button-secondary" href="{% url 'manage_books' %}">Back to Manage</a>
+                </div>
+            </form>
+        </section>
+    </main>
+{% endblock %}

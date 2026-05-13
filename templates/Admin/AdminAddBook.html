@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="page-shell narrow-shell">
+        <section class="form-card">
+            <p class="eyebrow">Admin Panel</p>
+            <h1>Add New Book</h1>
+            {% if error %}
+                <p class="form-message error">{{ error }}</p>
+            {% endif %}
+            <form class="stack-form" method="post" action="{% url 'add_book' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="add-title">Book Title</label>
+                <input id="add-title" name="title" type="text" required>
+                <label for="add-author">Author</label>
+                <input id="add-author" name="author" type="text" required>
+                <label for="add-category">Category</label>
+                <input id="add-category" name="category" type="text" value="General" required>
+                <label for="add-description">Description</label>
+                <textarea id="add-description" name="description" rows="4" required></textarea>
+                <label for="add-published-date">Published Date</label>
+                <input id="add-published-date" name="published_date" type="date" required>
+                <label for="add-isbn">ISBN</label>
+                <input id="add-isbn" name="isbn" type="text" required>
+                <label for="add-copies">Available Copies</label>
+                <input id="add-copies" name="available_copies" type="number" min="0" value="1" required>
+                <label for="add-image">Upload Book Image</label>
+                <input id="add-image" name="image" type="file" accept="image/*">
+                <div class="inline-actions">
+                    <button class="button button-primary" type="submit">Add Book</button>
+                    <a class="button button-secondary" href="{% url 'manage_books' %}">Back to Manage</a>
+                </div>
+            </form>
+        </section>
+    </main>
+{% endblock %}

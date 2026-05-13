@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="page-shell narrow-shell">
+        <section class="section-card">
+            <p class="eyebrow">Account Overview</p>
+            <h1>My Profile</h1>
+            <div class="profile-grid">
+                <article class="profile-item">
+                    <span>Username:</span>
+                    <strong id="profile-username">{{ account.name }}</strong>
+                </article>
+                <article class="profile-item">
+                    <span>Role:</span>
+                    <strong id="profile-role">{{ account.type }}</strong>
+                </article>
+                <article class="profile-item">
+                    <span>Email:</span>
+                    <strong id="profile-email">{{ account.email }}</strong>
+                </article>
+                <article class="profile-item">
+                    <span>Address:</span>
+                    <strong id="profile-address">{{ account.address }}</strong>
+                </article>
+                <article class="profile-item">
+                    <span>Phone Number:</span>
+                    <strong id="profile-phone">{{ account.phone_number }}</strong>
+                </article>
+            </div>
+            <div class="inline-actions">
+                <a class="button button-primary" href="{% url 'edit_profile' %}">Edit Profile</a>
+                <a class="button button-secondary" href="{% url 'my_books' %}">View My Books</a>
+            </div>
+        </section>
+    </main>
+{% endblock %}
